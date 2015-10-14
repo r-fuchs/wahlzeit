@@ -28,7 +28,7 @@ For more information, please see http://github.com/dirkriehle/wahlzeit and http:
 
 ### Run Wahlzeit on your local machine
   1. On the command line, ```cd wahlzeit```
-  2. Run ```./gradlew appengineRun```
+  2. Run ```./gradlew appengineRun``` as root
   3. Wait until all gradle and project dependencies have been downloaded and the local instance has been started
   4. Open [http://localhost:8080](http://localhost:8080) to try out Wahlzeit on your machine
 
