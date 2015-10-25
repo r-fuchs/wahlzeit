@@ -439,6 +439,7 @@ public class Photo extends DataObject {
 	 */
 	public void setCoordinate(Coordinate c){
 		this.location=c;
+		incWriteCount();
 	}
 	
 	/**
@@ -447,7 +448,7 @@ public class Photo extends DataObject {
 	 *  @param longitude the longitude value
 	 */
 	public void setCoordinate(double latitude, double longitude){
-		this.location=new Coordinate(latitude, longitude);
+		setCoordinate(new Coordinate(latitude, longitude));
 	}
 	
 	
