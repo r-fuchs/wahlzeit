@@ -131,9 +131,6 @@ public class Photo extends DataObject {
 	@Parent
 	Key parent = ObjectManager.applicationRootKey;
 
-	/**
-	 *TODO implement Null-Object
-	 */
 	protected Coordinate location; 
 	
 	
