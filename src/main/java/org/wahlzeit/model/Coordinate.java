@@ -5,7 +5,7 @@ import org.wahlzeit.services.DataObject;
 * Coordinate-Class implementation with basic functions
 * 
 */
-public class Coordinate extends DataObject {
+public class Coordinate{
 
 	//members
 	private double latidtude;
