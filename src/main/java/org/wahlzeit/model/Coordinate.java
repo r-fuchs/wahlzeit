@@ -1,11 +1,11 @@
 package org.wahlzeit.model;
+import org.wahlzeit.services.DataObject;
 
 /**
 * Coordinate-Class implementation with basic functions
-* @version 1.0
+* 
 */
-
-public class Coordinate {
+public class Coordinate extends DataObject {
 
 	//members
 	private double latidtude;
