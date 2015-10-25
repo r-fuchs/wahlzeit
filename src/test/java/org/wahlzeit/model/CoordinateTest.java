@@ -26,7 +26,7 @@ public class CoordinateTest {
 	 *
 	 */
 	@Test
-	public void testLatidudinalDistance() {
+	public void testLatitudinalDistance() {
 		assertEquals(0.0, c1.getDistance(c1).getLatidtude(), epsilon);
 		assertEquals(0.0, c2.getDistance(c2).getLatidtude(), epsilon);
 		assertEquals(0.0, c3.getDistance(c3).getLatidtude(), epsilon);
