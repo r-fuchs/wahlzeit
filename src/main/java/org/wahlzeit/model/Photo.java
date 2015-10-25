@@ -427,6 +427,7 @@ public class Photo extends DataObject {
 	
 	/**
 	 * @methodtype get
+	 * @return returns a coordinate-object 
 	 */
 	public Coordinate getCoordnate(){
 		return this.location;
@@ -434,9 +435,21 @@ public class Photo extends DataObject {
 	
 	/**
 	 * @methodtype set
+	 * @param c the coordiante-object
 	 */
 	public void setCoordinate(Coordinate c){
 		this.location=c;
 	}
+	
+	/**
+	 * @methodtype set
+	 * @param latitude the latitude value
+	 *  @param longitude the longitude value
+	 */
+	public void setCoordinate(double latitude, double longitude){
+		this.location=new Coordinate(latitude, longitude);
+	}
+	
+	
 	
 }
