@@ -21,10 +21,16 @@ public class Coordinate {
 	}
 	
 	//setter
-	private void setLatidtude(double latidtude) {
-		this.latidtude = latidtude;
+	private void setLatidtude(double latitude) {
+		if (latitude < -90 ||  latitude > 90){
+			throw new IllegalArgumentException("latitude must be between - 90 and 90");
+		}
+		this.latidtude = latitude;
 	}
 	private void setLongitude(double longitude) {
+		if (longitude < -180 ||  longitude > 180){
+			throw new IllegalArgumentException("longitude must be between - 180 and 180");
+		}
 		this.longitude = longitude;
 	}
 	
@@ -52,6 +58,9 @@ public class Coordinate {
 	* @methodtype get
 	*/
 	public double getLatitudinalDistance(Coordinate c){
+		if (c==null){
+			throw new IllegalArgumentException("coordinate must not be null");
+		}
 		return Math.abs(getLatidtude()-c.getLatidtude());
 	}
 	
@@ -62,6 +71,9 @@ public class Coordinate {
 	* @methodtype get
 	*/
 	public double getLongitudinalDistance(Coordinate c){
+		if (c==null){
+			throw new IllegalArgumentException("Coordinate must not be null");
+		}
 		return Math.abs(getLongitude()-c.getLongitude());
 	}
 	
