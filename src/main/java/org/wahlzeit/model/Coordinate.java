@@ -52,7 +52,7 @@ public class Coordinate {
 	* @methodtype get
 	*/
 	public double getLatitudinalDistance(Coordinate c){
-		return Math.abs(getLatidtude()-c.latidtude);
+		return Math.abs(getLatidtude()-c.getLatidtude());
 	}
 	
 	/**
