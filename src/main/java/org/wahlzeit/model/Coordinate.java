@@ -59,7 +59,7 @@ public class Coordinate {
 	*/
 	public double getLatitudinalDistance(Coordinate c){
 		if (c==null){
-			throw new IllegalArgumentException("coordinate must not be null");
+			throw new NullPointerException("coordinate must not be null");
 		}
 		return Math.abs(getLatidtude()-c.getLatidtude());
 	}
@@ -72,7 +72,7 @@ public class Coordinate {
 	*/
 	public double getLongitudinalDistance(Coordinate c){
 		if (c==null){
-			throw new IllegalArgumentException("Coordinate must not be null");
+			throw new NullPointerException("Coordinate must not be null");
 		}
 		return Math.abs(getLongitude()-c.getLongitude());
 	}
