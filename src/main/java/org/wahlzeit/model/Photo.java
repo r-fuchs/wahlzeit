@@ -134,7 +134,7 @@ public class Photo extends DataObject {
 	/**
 	 *TODO implement Null-Object
 	 */
-	protected Coordinate coordinate; 
+	protected Coordinate location; 
 	
 	
 	/**
@@ -429,14 +429,14 @@ public class Photo extends DataObject {
 	 * @methodtype get
 	 */
 	public Coordinate getCoordnate(){
-		return this.coordinate;
+		return this.location;
 	}
 	
 	/**
 	 * @methodtype set
 	 */
 	public void setCoordinate(Coordinate c){
-		this.coordinate=c;
+		this.location=c;
 	}
 	
 }
