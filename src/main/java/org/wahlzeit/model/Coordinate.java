@@ -1,5 +1,10 @@
 package org.wahlzeit.model;
 
+/**
+* Coordinate-Class implementation
+* @version 1.0
+*/
+
 public class Coordinate {
 
 	//members
@@ -30,16 +35,31 @@ public class Coordinate {
 	}
 	
 	//functions
+	/**
+	* Calculates the distance between the coordinate and a second coordinate
+	* @param c the second coordinate to calculate the distance from
+	* @return the distance between the coordinates as a coordinate-object
+	*/
 	public Coordinate getDistance (Coordinate c){
 		return new Coordinate(getLatitudinalDistance(c), getLongitudinalDistance(c));
 	}
 	
+	/**
+	* Calculates the latitudinal-distance between the coordinate and a second coordinate
+	* @paramc c the second coordinate to calculate the latitudinal-distance from
+	* @return the absolute latitudinal-distance
+	*/
 	public double getLatitudinalDistance(Coordinate c){
-		return getLatidtude()-c.latidtude;
+		return Math.abs(getLatidtude()-c.latidtude);
 	}
 	
+	/**
+	* Calculates the longitudina-distance between the coordinate and a second coordinate
+	* @param c the second coordinate to calculate the longitudinal-distance from
+	* @return the absolute longitudinal-distance
+	*/
 	public double getLongitudinalDistance(Coordinate c){
-		return getLongitude()-c.getLongitude();
+		return Math.abs(getLongitude()-c.getLongitude());
 	}
 	
 }
