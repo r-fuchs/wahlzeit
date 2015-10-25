@@ -132,6 +132,12 @@ public class Photo extends DataObject {
 	Key parent = ObjectManager.applicationRootKey;
 
 	/**
+	 *TODO implement Null-Object
+	 */
+	protected Coordinate coordinate; 
+	
+	
+	/**
 	 *
 	 */
 	public Photo() {
@@ -418,4 +424,19 @@ public class Photo extends DataObject {
 		noVotesAtLastNotification = noVotes;
 		incWriteCount();
 	}
+	
+	/**
+	 * @methodtype get
+	 */
+	public Coordinate getCoordnate(){
+		return this.coordinate;
+	}
+	
+	/**
+	 * @methodtype set
+	 */
+	public void setCoordinate(Coordinate c){
+		this.coordinate=c;
+	}
+	
 }
