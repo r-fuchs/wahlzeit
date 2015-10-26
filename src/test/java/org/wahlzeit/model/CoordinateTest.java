@@ -32,7 +32,7 @@ public class CoordinateTest {
 		assertEquals(0.0, c3.getDistance(c3).getLatidtude(), epsilon);
 		assertEquals(0.0, c4.getDistance(c4).getLatidtude(), epsilon);
 		assertEquals(0.0, c5.getDistance(c5).getLatidtude(), epsilon);
-
+		assertEquals(4.0, c2.getDistance(c4).getLatidtude(), epsilon);
 		assertEquals(2.0, c1.getDistance(c2).getLatidtude(), epsilon);
 		assertEquals(2.0, c2.getDistance(c3).getLatidtude(), epsilon);
 		assertEquals(2.0, c3.getDistance(c4).getLatidtude(), epsilon);
