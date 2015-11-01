@@ -1,5 +1,8 @@
 package org.wahlzeit.model;
 
+import com.googlecode.objectify.annotation.Subclass;
+
+@Subclass(index=true)
 public class ApplePhoto extends Photo {
 
 	
