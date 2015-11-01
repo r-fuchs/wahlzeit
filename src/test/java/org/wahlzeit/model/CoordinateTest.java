@@ -26,36 +26,19 @@ public class CoordinateTest {
 	 *
 	 */
 	@Test
-	public void testLatitudinalDistance() {
-		assertEquals(0.0, c1.getDistance(c1).getLatidtude(), epsilon);
-		assertEquals(0.0, c2.getDistance(c2).getLatidtude(), epsilon);
-		assertEquals(0.0, c3.getDistance(c3).getLatidtude(), epsilon);
-		assertEquals(0.0, c4.getDistance(c4).getLatidtude(), epsilon);
-		assertEquals(0.0, c5.getDistance(c5).getLatidtude(), epsilon);
-		assertEquals(4.0, c2.getDistance(c4).getLatidtude(), epsilon);
-		assertEquals(2.0, c1.getDistance(c2).getLatidtude(), epsilon);
-		assertEquals(2.0, c2.getDistance(c3).getLatidtude(), epsilon);
-		assertEquals(2.0, c3.getDistance(c4).getLatidtude(), epsilon);
-		assertEquals(0.0, c4.getDistance(c5).getLatidtude(), epsilon);
-		assertEquals(2.0, c5.getDistance(c1).getLatidtude(), epsilon);
-	}
+	public void testDistance() {
+		
+		assertEquals(0.0, c1.getDistance(c1), epsilon);
+		assertEquals(0.0, c2.getDistance(c2), epsilon);
+		assertEquals(0.0, c3.getDistance(c3), epsilon);
+		assertEquals(0.0, c4.getDistance(c4), epsilon);
+		assertEquals(0.0, c5.getDistance(c5), epsilon);
 
-	/**
-	 *
-	 */
-	@Test
-	public void testLongitudinalDistance() {
-		assertEquals(0.0, c1.getDistance(c1).getLongitude(), epsilon);
-		assertEquals(0.0, c2.getDistance(c2).getLongitude(), epsilon);
-		assertEquals(0.0, c3.getDistance(c3).getLongitude(), epsilon);
-		assertEquals(0.0, c4.getDistance(c4).getLongitude(), epsilon);
-		assertEquals(0.0, c5.getDistance(c5).getLongitude(), epsilon);
-
-		assertEquals(2.0, c1.getDistance(c2).getLongitude(), epsilon);
-		assertEquals(4.0, c2.getDistance(c3).getLongitude(), epsilon);
-		assertEquals(2.0, c3.getDistance(c4).getLongitude(), epsilon);
-		assertEquals(2.0, c4.getDistance(c5).getLongitude(), epsilon);
-		assertEquals(2.0, c5.getDistance(c1).getLongitude(), epsilon);
+		assertEquals(314.474, c1.getDistance(c2), epsilon);
+		assertEquals(497.198, c2.getDistance(c3), epsilon);
+		assertEquals(314.474, c3.getDistance(c4), epsilon);
+		assertEquals(222.254, c4.getDistance(c5), epsilon);
+		assertEquals(314.474, c5.getDistance(c1), epsilon);
 	}
 
 	/**
