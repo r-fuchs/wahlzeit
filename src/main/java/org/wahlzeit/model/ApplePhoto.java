@@ -67,13 +67,13 @@ public class ApplePhoto extends Photo {
 	* @methodtype get
 	*/
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	/**
 	* @methodtype set
 	*/
 	public void setName(String name) {
-		Name = name;
+		name = name;
 	}
 }
