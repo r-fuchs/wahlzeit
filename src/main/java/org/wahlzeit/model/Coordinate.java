@@ -24,15 +24,11 @@ public class Coordinate {
 	
 	//setter
 	private void setLatidtude(double latitude) {
-		if (latitude < -90 ||  latitude > 90){
-			throw new IllegalArgumentException("latitude must be between - 90 and 90");
-		}
+		assertIsLatitudeValid(latitude);
 		this.latitude = latitude;
 	}
 	private void setLongitude(double longitude) {
-		if (longitude < -180 ||  longitude > 180){
-			throw new IllegalArgumentException("longitude must be between - 180 and 180");
-		}
+		assertIsLongitudeValid(longitude);
 		this.longitude = longitude;
 	}
 	
@@ -71,10 +67,35 @@ public class Coordinate {
 	* @methodtype get
 	*/
 	public double getLatitudinalDistance(Coordinate c){
-		if (c==null){
-			throw new NullPointerException("coordinate must not be null");
-		}
+		assertCordinateNull(c);
 		return Math.abs(getLatitude()-c.getLatitude());
+	}
+	
+	/**
+	* @methodtype assert
+	*/
+	private void assertCordinateNull(Coordinate c){
+	if (c==null){
+		throw new NullPointerException("coordinate must not be null");
+		}
+	}
+	
+	/**
+	* @methodtype assert
+	*/
+	private void assertIsLatitudeValid(double latitude){
+		if (latitude < -90 ||  latitude > 90){
+			throw new IllegalArgumentException("latitude must be between - 90 and 90");
+		}
+	}
+	
+	/**
+	* @methodtype assert
+	*/
+	private void assertIsLongitudeValid(double longitude){
+		if (longitude < -180 ||  longitude > 180){
+			throw new IllegalArgumentException("longitude must be between - 180 and 180");
+		}
 	}
 	
 	/**
