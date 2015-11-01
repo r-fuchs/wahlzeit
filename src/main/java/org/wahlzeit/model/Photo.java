@@ -447,8 +447,7 @@ public class Photo extends DataObject {
 
 	/**
 	 * @methodtype set
-	 * @param c
-	 *            the coordiante-object
+	 * @param c the coordiante-object
 	 */
 	public void setLocation(Location c) {
 		this.location = c;
