@@ -13,7 +13,6 @@ public class Coordinate {
 	private double latitude;
 	private double longitude;
 	
-	//getter
 	
 	/**
 	* @methodtype get
@@ -28,8 +27,7 @@ public class Coordinate {
 	public double getLongitude() {
 		return longitude;
 	}
-	
-	//setter
+
 	
 	/**
 	* @methodtype set
@@ -47,7 +45,9 @@ public class Coordinate {
 		this.longitude = longitude;
 	}
 	
-	//constructor
+	/**
+	* @methodtype constructor
+	*/
 	public Coordinate (double latidtude, double longitude) {
 		setLatidtude(latidtude);
 		setLongitude(longitude);
