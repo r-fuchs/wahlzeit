@@ -8,6 +8,14 @@ package org.wahlzeit.model;
 	/**
 	 * @methodtype constructor
 	 */
+	public Location(double latitude, double longitude) {
+		this.coordinate = new Coordinate(latitude, longitude);
+	}
+	
+
+	/**
+	 * @methodtype constructor
+	 */
 	public Location(double latitude, double longitude, String name) {
 		this.coordinate = new Coordinate(latitude, longitude);
 		this.name = name;

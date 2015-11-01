@@ -68,72 +68,71 @@ public class Photo extends DataObject {
 	public static final int MAX_THUMB_PHOTO_HEIGHT = 150;
 
 	protected PhotoId id = null;
-	
+
 	/**
 	 *
 	 */
 	protected String ownerId;
-	
+
 	/**
-	 * Each photo can be viewed in different sizes (XS, S, M, L, XL)
-	 * Images are pre-computed in these sizes to optimize bandwidth when requested.
+	 * Each photo can be viewed in different sizes (XS, S, M, L, XL) Images are
+	 * pre-computed in these sizes to optimize bandwidth when requested.
 	 */
 	@Ignore
 	transient protected Map<PhotoSize, Image> images = new ArrayMap<PhotoSize, Image>();
-	
+
 	/**
 	 *
 	 */
 	protected boolean ownerNotifyAboutPraise = false;
 	protected EmailAddress ownerEmailAddress = EmailAddress.EMPTY;
 	protected Language ownerLanguage = Language.ENGLISH;
-	
+
 	/**
 	 *
 	 */
 	protected int width;
 	protected int height;
 	protected PhotoSize maxPhotoSize = PhotoSize.MEDIUM; // derived
-	
+
 	/**
 	 *
 	 */
 	protected Tags tags = Tags.EMPTY_TAGS;
-	
+
 	/**
 	 *
 	 */
 	protected PhotoStatus status = PhotoStatus.VISIBLE;
-	
+
 	/**
 	 *
 	 */
 	protected int praiseSum = 10;
 	protected int noVotes = 1;
 	protected int noVotesAtLastNotification = 1;
-	
+
 	/**
 	 *
 	 */
 	protected long creationTime = System.currentTimeMillis();
-	
+
 	/**
 	 * The default type is jpg
 	 */
 	protected String ending = "jpg";
-	
+
 	/**
 	 *
 	 */
-	//TODO: change it to a single long
+	// TODO: change it to a single long
 	@Id
 	Long idLong;
 	@Parent
 	Key parent = ObjectManager.applicationRootKey;
 
-	protected Coordinate location; 
-	
-	
+	protected Location location;
+
 	/**
 	 *
 	 */
@@ -145,9 +144,26 @@ public class Photo extends DataObject {
 	/**
 	 * @methodtype constructor
 	 */
+	public Photo(double latitude, double longitude) {
+		id = PhotoId.getNextId();
+		location = new Location(latitude, longitude);
+		incWriteCount();
+	}
+
+	/**
+	 * @methodtype constructor
+	 */
 	public Photo(PhotoId myId) {
 		id = myId;
+		incWriteCount();
+	}
 
+	/**
+	 * @methodtype constructor
+	 */
+	public Photo(PhotoId myId, double latitude, double longitude) {
+		id = myId;
+		location = new Location(latitude, longitude);
 		incWriteCount();
 	}
 
@@ -398,7 +414,6 @@ public class Photo extends DataObject {
 		return creationTime;
 	}
 
-
 	public String getEnding() {
 		return ending;
 	}
@@ -421,33 +436,34 @@ public class Photo extends DataObject {
 		noVotesAtLastNotification = noVotes;
 		incWriteCount();
 	}
-	
+
 	/**
 	 * @methodtype get
-	 * @return returns a coordinate-object 
+	 * @return returns a coordinate-object
 	 */
-	public Coordinate getCoordnate(){
+	public Location getLocation() {
 		return this.location;
 	}
-	
+
 	/**
 	 * @methodtype set
-	 * @param c the coordiante-object
+	 * @param c
+	 *            the coordiante-object
 	 */
-	public void setCoordinate(Coordinate c){
-		this.location=c;
+	public void setLocation(Location c) {
+		this.location = c;
 		incWriteCount();
 	}
-	
+
 	/**
 	 * @methodtype set
-	 * @param latitude the latitude value
-	 *  @param longitude the longitude value
+	 * @param latitude
+	 *            the latitude value
+	 * @param longitude
+	 *            the longitude value
 	 */
-	public void setCoordinate(double latitude, double longitude){
-		setCoordinate(new Coordinate(latitude, longitude));
+	public void setLocation(double latitude, double longitude) {
+		setLocation(new Location(latitude, longitude));
 	}
-	
-	
-	
+
 }
