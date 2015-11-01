@@ -8,7 +8,7 @@ public class ApplePhoto extends Photo {
 	
 	private double size;
 	private double weight;
-	private String Name;
+	private String name;
 
 
 	/**
