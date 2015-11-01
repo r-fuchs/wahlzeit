@@ -2,77 +2,72 @@ package org.wahlzeit.model;
 
 import com.googlecode.objectify.annotation.Subclass;
 
-@Subclass(index=true)
+@Subclass(index = true)
 public class ApplePhoto extends Photo {
 
-	
 	private double size;
 	private double weight;
 	private String name;
 
-
 	/**
-	* @methodtype constructor
-	*/
-	public ApplePhoto(){
+	 * @methodtype constructor
+	 */
+	public ApplePhoto() {
 		super();
 	}
-	
 
 	/**
-	* @methodtype constructor
-	*/
+	 * @methodtype constructor
+	 */
 	public ApplePhoto(PhotoId id) {
-	super(id);
+		super(id);
 	}
-	
+
 	/**
-	* @methodtype constructor
-	*/
+	 * @methodtype constructor
+	 */
 	public ApplePhoto(PhotoId id, double latitude, double longitude) {
 		super(id, latitude, longitude);
-			}
-	
-	
+	}
+
 	/**
-	* @methodtype get
-	*/
+	 * @methodtype get
+	 */
 	public double getSize() {
 		return size;
 	}
 
 	/**
-	* @methodtype set
-	*/
+	 * @methodtype set
+	 */
 	public void setSize(double size) {
 		this.size = size;
 	}
 
 	/**
-	* @methodtype get
-	*/
+	 * @methodtype get
+	 */
 	public double getWeight() {
 		return weight;
 	}
 
 	/**
-	* @methodtype set
-	*/
+	 * @methodtype set
+	 */
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
-	
-	
+
 	/**
-	* @methodtype get
-	*/
+	 * @methodtype get
+	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	* @methodtype set
-	*/
+	 * @methodtype set
+	 */
 	public void setName(String name) {
 		name = name;
 	}
