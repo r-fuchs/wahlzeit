@@ -6,7 +6,7 @@ package org.wahlzeit.model;
 
 
 	/**
-	 * @methodtype constructor
+	 * @methodtype convenience constructor
 	 */
 	public Location(double latitude, double longitude) {
 		this.coordinate = new Coordinate(latitude, longitude);

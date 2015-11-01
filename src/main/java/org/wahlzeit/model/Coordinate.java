@@ -13,38 +13,6 @@ public class Coordinate {
 	private double latitude;
 	private double longitude;
 	
-	
-	/**
-	* @methodtype get
-	*/
-	public double getLatitude() {
-		return latitude;
-	}
-	
-	/**
-	* @methodtype get
-	*/
-	public double getLongitude() {
-		return longitude;
-	}
-
-	
-	/**
-	* @methodtype set
-	*/
-	private void setLatidtude(double latitude) {
-		assertIsLatitudeValid(latitude);
-		this.latitude = latitude;
-	}
-	
-	/**
-	* @methodtype set
-	*/
-	private void setLongitude(double longitude) {
-		assertIsLongitudeValid(longitude);
-		this.longitude = longitude;
-	}
-	
 	/**
 	* @methodtype constructor
 	*/
@@ -53,12 +21,48 @@ public class Coordinate {
 		setLongitude(longitude);
 	}
 	
+	/**
+	* @methodtype get
+	* @methodproperty primitive
+	*/
+	public double getLatitude() {
+		return latitude;
+	}
+	
+	/**
+	* @methodtype get
+	* @methodproperty primitive
+	*/
+	public double getLongitude() {
+		return longitude;
+	}
+
+	
+	/**
+	* @methodtype set
+	* @methodproperty composed
+	*/
+	private void setLatidtude(double latitude) {
+		assertIsLatitudeValid(latitude);
+		this.latitude = latitude;
+	}
+	
+	/**
+	* @methodtype set
+	* @methodproperty composed
+	*/
+	private void setLongitude(double longitude) {
+		assertIsLongitudeValid(longitude);
+		this.longitude = longitude;
+	}
+	
 	//functions    
 	/**
 	* Calculates the distance between the coordinate and a second coordinate
 	* @param c the second coordinate to calculate the distance from
 	* @return the distance in kilometer between the coordinates
-	*@methodtype query
+	* @methodtype query
+	* @methodproperty composed
 	*/
 	public double getDistance (Coordinate c){
 		double radLat1 = decimalToRad(getLatitude());
@@ -70,7 +74,10 @@ public class Coordinate {
 				Math.cos(radLat1)*Math.cos(radLat2) *
 				Math.cos(radLong2-radLong1))*EARTHRADIUS;
 	}
-	
+
+	/**
+	* @methodproperty class method
+	*/
 	private double decimalToRad (double number) {
 		return Math.PI*number/180;
 	}
