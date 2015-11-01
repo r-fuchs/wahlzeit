@@ -14,19 +14,34 @@ public class Coordinate {
 	private double longitude;
 	
 	//getter
+	
+	/**
+	* @methodtype get
+	*/
 	public double getLatitude() {
 		return latitude;
 	}
 	
+	/**
+	* @methodtype get
+	*/
 	public double getLongitude() {
 		return longitude;
 	}
 	
 	//setter
+	
+	/**
+	* @methodtype set
+	*/
 	private void setLatidtude(double latitude) {
 		assertIsLatitudeValid(latitude);
 		this.latitude = latitude;
 	}
+	
+	/**
+	* @methodtype set
+	*/
 	private void setLongitude(double longitude) {
 		assertIsLongitudeValid(longitude);
 		this.longitude = longitude;
@@ -43,7 +58,7 @@ public class Coordinate {
 	* Calculates the distance between the coordinate and a second coordinate
 	* @param c the second coordinate to calculate the distance from
 	* @return the distance in kilometer between the coordinates
-	* @methodtype get
+	*@methodtype query
 	*/
 	public double getDistance (Coordinate c){
 		double radLat1 = decimalToRad(getLatitude());
@@ -64,7 +79,7 @@ public class Coordinate {
 	* Calculates the latitudinal-distance between the coordinate and a second coordinate
 	* @paramc c the second coordinate to calculate the latitudinal-distance from
 	* @return the absolute latitudinal-distance
-	* @methodtype get
+	* @methodtype query
 	*/
 	public double getLatitudinalDistance(Coordinate c){
 		assertCordinateNull(c);
@@ -102,7 +117,7 @@ public class Coordinate {
 	* Calculates the longitudina-distance between the coordinate and a second coordinate
 	* @param c the second coordinate to calculate the longitudinal-distance from
 	* @return the absolute longitudinal-distance
-	* @methodtype get
+	* @methodtype query
 	*/
 	public double getLongitudinalDistance(Coordinate c){
 		if (c==null){
