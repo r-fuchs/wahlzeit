@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class SphericCoordinateTest {
 
 	private Coordinate c1, c2, c3, c4, c5;
-	private double epsilon = 0.001;
+	private double epsilon = 0.00001;
 
 	@Before
 	public void setUp() {
