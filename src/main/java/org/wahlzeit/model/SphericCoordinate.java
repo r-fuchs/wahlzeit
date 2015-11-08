@@ -77,8 +77,8 @@ public class SphericCoordinate implements Coordinate {
 	}
 
 	/**
-	* @methodtype set
-	*/
+	 * @methodtype set
+	 */
 	public void setLongitude(double longitude) {
 		assertIsLongitudeValid(longitude);
 		this.longitude = longitude;
