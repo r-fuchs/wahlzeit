@@ -57,7 +57,8 @@ public class SphericCoordinate implements Coordinate {
 	* @methodproperty composed
 	*/
 	public double getDistance (Coordinate c){
-	//pythagoras:	
+	//pythagoras:
+		assertCordinateNull(c);
 		return Math.sqrt(
 				Math.pow(c.getX() - this.getX(), 2) 
 				+ Math.pow(c.getY() - this.getY(), 2) 
