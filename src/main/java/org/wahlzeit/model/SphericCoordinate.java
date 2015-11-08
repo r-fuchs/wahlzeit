@@ -108,7 +108,7 @@ public class SphericCoordinate extends DataObject implements Coordinate {
 	* @methodproperty composed
 	*/
 	public double getDistance (Coordinate c){
-	//pythagoras:
+	//Pythagoras:
 		assertCordinateNull(c);
 		return Math.sqrt(
 				Math.pow(c.getX() - this.getX(), 2) 

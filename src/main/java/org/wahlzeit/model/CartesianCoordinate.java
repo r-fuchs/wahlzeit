@@ -92,7 +92,7 @@ public class CartesianCoordinate extends DataObject implements Coordinate {
 	 * @methodtype get
 	 */
 	public double getDistance(Coordinate c) {
-		// pythagoras:
+		// Pythagoras:
 		assertCordinateNull(c);
 		return Math.sqrt(Math.pow(c.getX() - this.getX(), 2) + Math.pow(c.getY() - this.getY(), 2)
 				+ Math.pow(c.getZ() - this.getZ(), 2));
