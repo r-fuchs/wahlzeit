@@ -5,7 +5,7 @@ import org.wahlzeit.services.DataObject;
 * Coordinate-Class implementation with basic functions
 * 
 */
-public class Coordinate {
+public class Coordinate_old {
 
 	private final double EARTHRADIUS = 6371;
 	
@@ -16,7 +16,7 @@ public class Coordinate {
 	/**
 	* @methodtype constructor
 	*/
-	public Coordinate (double latidtude, double longitude) {
+	public Coordinate_old (double latidtude, double longitude) {
 		setLatidtude(latidtude);
 		setLongitude(longitude);
 	}
@@ -64,7 +64,7 @@ public class Coordinate {
 	* @methodtype query
 	* @methodproperty composed
 	*/
-	public double getDistance (Coordinate c){
+	public double getDistance (Coordinate_old c){
 		double radLat1 = decimalToRad(getLatitude());
 		double radLong1 = decimalToRad(getLongitude());
 		double radLat2 = decimalToRad(c.getLatitude());
@@ -88,7 +88,7 @@ public class Coordinate {
 	* @return the absolute latitudinal-distance
 	* @methodtype query
 	*/
-	public double getLatitudinalDistance(Coordinate c){
+	public double getLatitudinalDistance(Coordinate_old c){
 		assertCordinateNull(c);
 		return Math.abs(getLatitude()-c.getLatitude());
 	}
@@ -96,7 +96,7 @@ public class Coordinate {
 	/**
 	* @methodtype assert
 	*/
-	private void assertCordinateNull(Coordinate c){
+	private void assertCordinateNull(Coordinate_old c){
 	if (c==null){
 		throw new NullPointerException("coordinate must not be null");
 		}
@@ -126,7 +126,7 @@ public class Coordinate {
 	* @return the absolute longitudinal-distance
 	* @methodtype query
 	*/
-	public double getLongitudinalDistance(Coordinate c){
+	public double getLongitudinalDistance(Coordinate_old c){
 		if (c==null){
 			throw new NullPointerException("Coordinate must not be null");
 		}
