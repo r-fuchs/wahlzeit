@@ -1,3 +1,24 @@
+ /**
+  * SphericCoordinate
+  * 
+  * Copyright (c) by Richard Fuchs
+  *
+  * This program is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU Affero General Public License as
+  * published by the Free Software Foundation, either version 3 of the
+  * License, or (at your option) any later version.
+  *
+  * This program is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU Affero General Public License for more details.
+  *
+  * You should have received a copy of the GNU Affero General Public
+  * License along with this program. If not, see
+  * <http://www.gnu.org/licenses/>.
+  */
+
+
 package org.wahlzeit.model;
 
 public class SphericCoordinate implements Coordinate {
@@ -6,47 +27,73 @@ public class SphericCoordinate implements Coordinate {
 	private double longitude;
 	private double radius;
 	
+	/**
+	* @methodtype constructor
+	*/
 	public SphericCoordinate () {
 		setLatitude(0);
 		setLongitude(0);
 		setRadius(Coordinate.EARTHRADIUS);
 	}
 	
+	/**
+	* @methodtype constructor
+	*/
 	public SphericCoordinate (double latidtude, double longitude, double radius) {
 		setLatitude(latidtude);
 		setLongitude(longitude);
 		setRadius(radius);
 	}
 	
+	/**
+	* @methodtype constructor
+	*/
 	public SphericCoordinate (double latidtude, double longitude) {
 		setLatitude(latidtude);
 		setLongitude(longitude);
 		setRadius(Coordinate.EARTHRADIUS);
 	}
 	
-	
+	/**
+	* @methodtype get
+	*/
 	public double getLatitude() {
 		return latitude;
 	}
 
+	/**
+	* @methodtype set
+	*/
 	public void setLatitude(double latitude) {
 		assertIsLatitudeValid(latitude);
 		this.latitude = latitude;
 	}
 
+	/**
+	* @methodtype get
+	*/
 	public double getLongitude() {
 		return longitude;
 	}
 
+	/**
+	* @methodtype set
+	*/
 	public void setLongitude(double longitude) {
 		assertIsLongitudeValid(longitude);
 		this.longitude = longitude;
 	}
 
+	/**
+	* @methodtype get
+	*/
 	public double getRadius() {
 		return radius;
 	}
 
+	/**
+	* @methodtype set
+	*/
 	public void setRadius(double radius) {
 		this.radius = radius;
 	}
@@ -67,7 +114,9 @@ public class SphericCoordinate implements Coordinate {
 				+ Math.pow(c.getZ() - this.getZ(), 2));
 	}
 
-	@Override
+	/**
+	* @methodtype boolean-query
+	*/
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -81,6 +130,9 @@ public class SphericCoordinate implements Coordinate {
 		return result;
 	}
 
+	/**
+	* @methodtype boolean-query
+	*/
 	public boolean isEqual(Coordinate c) {
 		if (this == c)
 			return true;
@@ -98,21 +150,26 @@ public class SphericCoordinate implements Coordinate {
 		return true;
 	}
 
-	public CartesianCoordinate toCartesianCoordinate()
-	{
-		return new CartesianCoordinate(getX(), getY(), getZ());
-	}
 
 	//conversation to x,y and z:
 	//from http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
+	/**
+	* @methodtype get
+	*/
 	public double getX() {
 		return getRadius() * Math.cos(Math.toRadians(getLatitude())) * Math.cos(Math.toRadians(getLongitude()));
 	}
 
+	/**
+	* @methodtype get
+	*/
 	public double getY() {
 		return getRadius() * Math.cos(Math.toRadians(getLatitude())) * Math.sin(Math.toRadians(getLongitude()));
 	}
 
+	/**
+	* @methodtype get
+	*/
 	public double getZ() {
 		return getRadius() * Math.sin(Math.toRadians(getLatitude()));
 	}
@@ -140,7 +197,5 @@ public class SphericCoordinate implements Coordinate {
 		if (latitude < -90 ||  latitude > 90){
 			throw new IllegalArgumentException("latitude must be between - 90 and 90");
 		}
-	}
-	
-	
+	}	
 }
