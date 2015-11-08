@@ -6,6 +6,10 @@ public class SphericCoordinate implements Coordinate {
 	private double longitude;
 	private double radius;
 	
+	public SphericCoordinate () {
+		setLatitude(0);
+		setLongitude(0);
+	}
 	
 	public SphericCoordinate (double latidtude, double longitude) {
 		setLatitude(latidtude);

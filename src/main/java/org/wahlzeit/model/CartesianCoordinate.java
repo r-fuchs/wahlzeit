@@ -6,6 +6,12 @@ public class CartesianCoordinate implements Coordinate {
 	private double y;
 	private double z;
 	
+	public CartesianCoordinate () {
+		setX(0);
+		setY(0);
+		setZ(0);
+	}
+	
 	public CartesianCoordinate (double x, double y, double z) {
 		setX(x);
 		setY(y);
