@@ -15,11 +15,11 @@ public class CoordinateTest {
 
 	@Before
 	public void setUp() {
-		c1 = new Coordinate(0, 0);
-		c2 = new Coordinate(2, 2);
-		c3 = new Coordinate(0, -2);
-		c4 = new Coordinate(-2, 0);
-		c5 = new Coordinate(-2, -2);
+		c1 = new SphericCoordinate(0, 0);
+		c2 = new SphericCoordinate(2, 2);
+		c3 = new SphericCoordinate(0, -2);
+		c4 = new SphericCoordinate(-2, 0);
+		c5 = new SphericCoordinate(-2, -2);
 	}
 
 	/**
@@ -47,10 +47,10 @@ public class CoordinateTest {
 	 * longitude can be between - 180 and 180
 	 */
 	public void testCoordinateValuesBounds() {
-		c1 = new Coordinate(90, 0);
-		c1 = new Coordinate(-90, 0);
-		c1 = new Coordinate(0, 180);
-		c1 = new Coordinate(0, -180);
+		c1 = new SphericCoordinate(90, 0);
+		c1 = new SphericCoordinate(-90, 0);
+		c1 = new SphericCoordinate(0, 180);
+		c1 = new SphericCoordinate(0, -180);
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class CoordinateTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testLatitudinalCoordinateToHighShouldCauseException() {
-		c1 = new Coordinate(91, 0);
+		c1 = new SphericCoordinate(91, 0);
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class CoordinateTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testLatitudinalCoordinateToLowShouldCauseException() {
-		c1 = new Coordinate(-91, 0);
+		c1 = new SphericCoordinate(-91, 0);
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class CoordinateTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testLongitudinalCoordinateToHighShouldCauseException() {
-		c1 = new Coordinate(0, 181);
+		c1 = new SphericCoordinate(0, 181);
 	}
 
 	/**
@@ -82,23 +82,7 @@ public class CoordinateTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testLongitudinalCoordinateToLowShouldCauseException() {
-		c1 = new Coordinate(0, -181);
-	}
-
-	/**
-	 *
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testLatitudinalDistanceNullShouldCauseException() {
-		c1.getLatitudinalDistance(null);
-	}
-
-	/**
-	 *
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testLongitudinalDistanceNullShouldCauseException() {
-		c1.getLongitudinalDistance(null);
+		c1 = new SphericCoordinate(0, -181);
 	}
 
 }
