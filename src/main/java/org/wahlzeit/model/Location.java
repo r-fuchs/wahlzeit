@@ -3,14 +3,6 @@ package org.wahlzeit.model;
  public class Location {
 	private String name;
 	private Coordinate coordinate;
-
-
-	/**
-	 * @methodtype convenience constructor
-	 */
-	public Location(double latitude, double longitude) {
-		this.coordinate = new SphericCoordinate(latitude, longitude);
-	}
 	
 	/**
 	 * @methodtype convenience constructor
