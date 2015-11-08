@@ -27,43 +27,69 @@ public class CartesianCoordinate implements Coordinate {
 	private double y;
 	private double z;
 	
+	/**
+	* @methodtype constructor
+	*/
 	public CartesianCoordinate () {
 		setX(0);
 		setY(0);
 		setZ(0);
 	}
 	
+	/**
+	* @methodtype constructor
+	*/
 	public CartesianCoordinate (double x, double y, double z) {
 		setX(x);
 		setY(y);
 		setZ(z);
 	}
 	
+	/**
+	* @methodtype get
+	*/
 	public double getX() {
 		return x;
 	}
 
+	/**
+	* @methodtype set
+	*/
 	public void setX(double x) {
 		this.x = x;
 	}
 
+	/**
+	* @methodtype get
+	*/
 	public double getY() {
 		return y;
 	}
 
+	/**
+	* @methodtype set
+	*/
 	public void setY(double y) {
 		this.y = y;
 	}
 
+	/**
+	* @methodtype get
+	*/
 	public double getZ() {
 		return z;
 	}
 
+	/**
+	* @methodtype set
+	*/
 	public void setZ(double z) {
 		this.z = z;
 	}
 
-	@Override
+	/**
+	* @methodtype get
+	*/
 	public double getDistance (Coordinate c){
 	//pythagoras:
 	assertCordinateNull(c);
@@ -72,7 +98,9 @@ public class CartesianCoordinate implements Coordinate {
 				+ Math.pow(c.getY() - this.getY(), 2) 
 				+ Math.pow(c.getZ() - this.getZ(), 2));
 	}
-	
+	/**
+	* @methodtype boolean-query
+	*/ 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -87,7 +115,9 @@ public class CartesianCoordinate implements Coordinate {
 		return result;
 	}
 	
-	@Override
+	/**
+	* @methodtype boolean-query
+	*/ 
 	public boolean isEqual(Coordinate c) {
 		if (this == c)
 			return true;
@@ -106,12 +136,12 @@ public class CartesianCoordinate implements Coordinate {
 	}
 
 	//reffering to http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
-	public SphericCoordinate toSphericCoordinate(double radius)
-	{
-		double lat = Math.asin(getZ() / radius);
-		double lon = Math.atan2(getY(), getX());
-		return new SphericCoordinate(lat, lon);
-	}
+	//public SphericCoordinate toSphericCoordinate(double radius)
+	//{
+	//	double lat = Math.asin(getZ() / radius);
+	//	double lon = Math.atan2(getY(), getX());
+	//	return new SphericCoordinate(lat, lon);
+	//}
 	
 	/**
 	* @methodtype assert
