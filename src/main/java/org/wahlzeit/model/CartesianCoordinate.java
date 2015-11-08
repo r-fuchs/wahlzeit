@@ -46,12 +46,39 @@ public class CartesianCoordinate implements Coordinate {
 	public double getDistance(Coordinate c) {
 
 	}
-
+	
 	@Override
-	public boolean isEqual(Coordinate c) {
-
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(x);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(y);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(z);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
 	}
 	
+	@Override
+	public boolean isEqual(Coordinate c) {
+		if (this == c)
+			return true;
+		if (c == null)
+			return false;
+		if (getClass() != c.getClass())
+			return false;
+		CartesianCoordinate other = (CartesianCoordinate) c;
+		if (Double.doubleToLongBits(x) != Double.doubleToLongBits(other.x))
+			return false;
+		if (Double.doubleToLongBits(y) != Double.doubleToLongBits(other.y))
+			return false;
+		if (Double.doubleToLongBits(z) != Double.doubleToLongBits(other.z))
+			return false;
+		return true;
+	}
+
 	//reffering to http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
 	//implementation just for fun
 	public SphericCoordinate toSphericCoordinate()
