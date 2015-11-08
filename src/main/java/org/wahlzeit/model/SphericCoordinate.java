@@ -30,7 +30,7 @@ public class SphericCoordinate implements Coordinate {
 	}
 
 	public void setLatitude(double latitude) {
-		assertIsLongitudeValid(longitude);
+		assertIsLatitudeValid(latitude);
 		this.latitude = latitude;
 	}
 
@@ -39,7 +39,7 @@ public class SphericCoordinate implements Coordinate {
 	}
 
 	public void setLongitude(double longitude) {
-		assertIsLatitudeValid(latitude);
+		assertIsLongitudeValid(longitude);
 		this.longitude = longitude;
 	}
 
