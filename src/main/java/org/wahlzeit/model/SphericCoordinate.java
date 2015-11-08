@@ -43,16 +43,22 @@ public class SphericCoordinate implements Coordinate {
 
 	@Override
 	public double getDistance(Coordinate c) {
-		// TODO Auto-generated method stub
-		return 0;
+
 	}
 
 	@Override
 	public boolean isEqual(Coordinate c) {
-		// TODO Auto-generated method stub
-		return false;
+
 	}
 
-
+	//reffering to http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
+	//implementation just for fun
+	public CartesianCoordinate toCartesianCoordinate()
+	{
+		double x = Coordinate.EARTHRADIUS * Math.cos(getLatitude()) * Math.cos(getLongitude());
+		double y = Coordinate.EARTHRADIUS * Math.cos(getLatitude()) * Math.sin(getLongitude());
+		double z = Coordinate.EARTHRADIUS * Math.sin(getLatitude());
+		return new CartesianCoordinate(x, y, z);
+	}
 	
 }
