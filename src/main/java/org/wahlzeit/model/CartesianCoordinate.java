@@ -91,7 +91,13 @@ public class CartesianCoordinate implements Coordinate {
 		return new SphericCoordinate(lat, lon);
 	}
 	
-	
-
+	/**
+	* @methodtype assert
+	*/
+	private void assertCordinateNull(Coordinate c){
+	if (c==null){
+		throw new NullPointerException("coordinate must not be null");
+		}
+	}
 	
 }

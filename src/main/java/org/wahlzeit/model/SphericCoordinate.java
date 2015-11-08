@@ -114,5 +114,12 @@ public class SphericCoordinate implements Coordinate {
 		return getRadius() * Math.sin(Math.toRadians(getLatitude()));
 	}
 
-	
+	/**
+	* @methodtype assert
+	*/
+	private void assertCordinateNull(Coordinate c){
+	if (c==null){
+		throw new NullPointerException("coordinate must not be null");
+		}
+	}
 }
