@@ -9,11 +9,19 @@ public class SphericCoordinate implements Coordinate {
 	public SphericCoordinate () {
 		setLatitude(0);
 		setLongitude(0);
+		setRadius(Coordinate.EARTHRADIUS);
+	}
+	
+	public SphericCoordinate (double latidtude, double longitude, double radius) {
+		setLatitude(latidtude);
+		setLongitude(longitude);
+		setRadius(radius);
 	}
 	
 	public SphericCoordinate (double latidtude, double longitude) {
 		setLatitude(latidtude);
 		setLongitude(longitude);
+		setRadius(Coordinate.EARTHRADIUS);
 	}
 	
 	
@@ -82,9 +90,9 @@ public class SphericCoordinate implements Coordinate {
 	//implementation just for fun
 	public CartesianCoordinate toCartesianCoordinate()
 	{
-		double x = Coordinate.EARTHRADIUS * Math.cos(getLatitude()) * Math.cos(getLongitude());
-		double y = Coordinate.EARTHRADIUS * Math.cos(getLatitude()) * Math.sin(getLongitude());
-		double z = Coordinate.EARTHRADIUS * Math.sin(getLatitude());
+		double x = getRadius() * Math.cos(getLatitude()) * Math.cos(getLongitude());
+		double y = getRadius() * Math.cos(getLatitude()) * Math.sin(getLongitude());
+		double z = getRadius() * Math.sin(getLatitude());
 		return new CartesianCoordinate(x, y, z);
 	}
 	
