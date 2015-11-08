@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Test cases for the Coordinate class.
  */
-public class CoordinateTest {
+public class SphericCoordinateTest {
 
 	private Coordinate c1, c2, c3, c4, c5;
 	private double epsilon = 0.001;
