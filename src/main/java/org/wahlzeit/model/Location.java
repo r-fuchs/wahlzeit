@@ -9,16 +9,14 @@ package org.wahlzeit.model;
 	 * @methodtype convenience constructor
 	 */
 	public Location(double latitude, double longitude) {
-		this.coordinate = new Coordinate(latitude, longitude);
+		this.coordinate = new SphericCoordinate(latitude, longitude);
 	}
 	
-
 	/**
-	 * @methodtype constructor
+	 * @methodtype convenience constructor
 	 */
-	public Location(double latitude, double longitude, String name) {
-		this.coordinate = new Coordinate(latitude, longitude);
-		this.name = name;
+	public Location(double x, double y, double z) {
+		this.coordinate = new CartesianCoordinate(x,y,z);
 	}
 	
 	/**
