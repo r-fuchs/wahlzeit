@@ -20,7 +20,9 @@
 
 package org.wahlzeit.model;
 
- public class Location {
+import org.wahlzeit.services.DataObject;
+
+public class Location extends DataObject{
 	private String name;
 	private Coordinate coordinate;
 	
