@@ -7,8 +7,8 @@ package org.wahlzeit.model;
 	/**
 	 * @methodtype convenience constructor
 	 */
-	public Location(double x, double y, double z) {
-		this.coordinate = new CartesianCoordinate(x,y,z);
+	public Location(double latitude, double longitude) {
+		this.coordinate = new SphericCoordinate(latitude,longitude);
 	}
 	
 	/**
