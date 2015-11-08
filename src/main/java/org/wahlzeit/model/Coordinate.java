@@ -7,4 +7,8 @@ public interface Coordinate {
 	public double getDistance(Coordinate c);
 	public boolean isEqual(Coordinate c);
 	
+	public double getX();
+	public double getY();
+	public double getZ();
+	
 }
