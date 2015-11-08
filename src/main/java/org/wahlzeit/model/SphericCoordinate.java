@@ -6,6 +6,13 @@ public class SphericCoordinate implements Coordinate {
 	private double longitude;
 	private double radius;
 	
+	
+	public SphericCoordinate (double latidtude, double longitude) {
+		setLatitude(latidtude);
+		setLongitude(longitude);
+	}
+	
+	
 	public double getLatitude() {
 		return latitude;
 	}
@@ -32,12 +39,16 @@ public class SphericCoordinate implements Coordinate {
 
 	@Override
 	public double getDistance(Coordinate c) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public boolean isEqual(Coordinate c) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
+
+	
 }
