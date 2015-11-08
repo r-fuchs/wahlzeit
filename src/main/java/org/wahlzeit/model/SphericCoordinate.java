@@ -46,9 +46,36 @@ public class SphericCoordinate implements Coordinate {
 
 	}
 
-	@Override
-	public boolean isEqual(Coordinate c) {
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(latitude);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(longitude);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(radius);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	public boolean isEqual(Coordinate c) {
+		if (this == c)
+			return true;
+		if (c == null)
+			return false;
+		if (getClass() != c.getClass())
+			return false;
+		SphericCoordinate other = (SphericCoordinate) c;
+		if (Double.doubleToLongBits(latitude) != Double.doubleToLongBits(other.latitude))
+			return false;
+		if (Double.doubleToLongBits(longitude) != Double.doubleToLongBits(other.longitude))
+			return false;
+		if (Double.doubleToLongBits(radius) != Double.doubleToLongBits(other.radius))
+			return false;
+		return true;
 	}
 
 	//reffering to http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
