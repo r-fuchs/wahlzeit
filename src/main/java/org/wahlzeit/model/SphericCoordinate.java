@@ -49,11 +49,20 @@ public class SphericCoordinate implements Coordinate {
 		this.radius = radius;
 	}
 
-	@Override
-	public double getDistance(Coordinate c) {
-
+	/**
+	* Calculates the distance between the coordinate and a second coordinate
+	* @param c the second coordinate to calculate the distance from
+	* @return the distance in kilometer between the coordinates
+	* @methodtype query
+	* @methodproperty composed
+	*/
+	public double getDistance (Coordinate c){
+	//pythagoras:	
+		return Math.sqrt(
+				Math.pow(c.getX() - this.getX(), 2) 
+				+ Math.pow(c.getY() - this.getY(), 2) 
+				+ Math.pow(c.getZ() - this.getZ(), 2));
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -86,14 +95,24 @@ public class SphericCoordinate implements Coordinate {
 		return true;
 	}
 
-	//reffering to http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
-	//implementation just for fun
 	public CartesianCoordinate toCartesianCoordinate()
 	{
-		double x = getRadius() * Math.cos(getLatitude()) * Math.cos(getLongitude());
-		double y = getRadius() * Math.cos(getLatitude()) * Math.sin(getLongitude());
-		double z = getRadius() * Math.sin(getLatitude());
-		return new CartesianCoordinate(x, y, z);
+		return new CartesianCoordinate(getX(), getY(), getZ());
 	}
+
+	//conversation to x,y and z:
+	//from http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
+	public double getX() {
+		return getRadius() * Math.cos(Math.toRadians(getLatitude())) * Math.cos(Math.toRadians(getLongitude()));
+	}
+
+	public double getY() {
+		return getRadius() * Math.cos(Math.toRadians(getLatitude())) * Math.sin(Math.toRadians(getLongitude()));
+	}
+
+	public double getZ() {
+		return getRadius() * Math.sin(Math.toRadians(getLatitude()));
+	}
+
 	
 }

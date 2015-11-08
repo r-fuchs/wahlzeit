@@ -43,8 +43,12 @@ public class CartesianCoordinate implements Coordinate {
 	}
 
 	@Override
-	public double getDistance(Coordinate c) {
-
+	public double getDistance (Coordinate c){
+	//pythagoras:	
+		return Math.sqrt(
+				Math.pow(c.getX() - this.getX(), 2) 
+				+ Math.pow(c.getY() - this.getY(), 2) 
+				+ Math.pow(c.getZ() - this.getZ(), 2));
 	}
 	
 	@Override
@@ -80,12 +84,14 @@ public class CartesianCoordinate implements Coordinate {
 	}
 
 	//reffering to http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
-	//implementation just for fun
-	public SphericCoordinate toSphericCoordinate()
+	public SphericCoordinate toSphericCoordinate(double radius)
 	{
-		double lat = Math.asin(getZ() / Coordinate.EARTHRADIUS);
+		double lat = Math.asin(getZ() / radius);
 		double lon = Math.atan2(getY(), getX());
 		return new SphericCoordinate(lat, lon);
 	}
+	
+	
 
+	
 }
