@@ -26,20 +26,20 @@ public class SphericCoordinate implements Coordinate {
 	
 	
 	public double getLatitude() {
-		assertIsLatitudeValid(latitude);
 		return latitude;
 	}
 
 	public void setLatitude(double latitude) {
+		assertIsLongitudeValid(longitude);
 		this.latitude = latitude;
 	}
 
 	public double getLongitude() {
-		assertIsLongitudeValid(longitude);
 		return longitude;
 	}
 
 	public void setLongitude(double longitude) {
+		assertIsLatitudeValid(latitude);
 		this.longitude = longitude;
 	}
 
