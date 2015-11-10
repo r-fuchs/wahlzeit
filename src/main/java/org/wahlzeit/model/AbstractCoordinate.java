@@ -19,22 +19,27 @@
  */
 
 package org.wahlzeit.model;
-
+/**
+ * Abstract implementation of Coordinate
+ * Implements basis functions
+ */
 public abstract class AbstractCoordinate implements Coordinate {
 
 	/**
-	* Calculates the distance between the coordinate and a second coordinate
-	* @param c the second coordinate to calculate the distance from
-	* @return the distance in kilometer between the coordinates
-	* @methodtype query
-	* @methodproperty composed
-	*/
-	public double getDistance (Coordinate c){
-	//Pythagoras:
+	 * Calculates the distance between the coordinate and a second coordinate
+	 * 
+	 * @param c
+	 *            the second coordinate to calculate the distance from
+	 * @return the distance in kilometer between the coordinates
+	 * @methodtype query
+	 * @methodproperty composed
+	 */
+	public double getDistance(Coordinate c) {
+		// Pythagoras:
 		assertCordinateNull(c);
 		return Math.sqrt(
 				Math.pow(c.getX() - this.getX(), 2) 
-				+ Math.pow(c.getY() - this.getY(), 2) 
+				+ Math.pow(c.getY() - this.getY(), 2)
 				+ Math.pow(c.getZ() - this.getZ(), 2));
 	}
 
@@ -58,24 +63,6 @@ public abstract class AbstractCoordinate implements Coordinate {
 		return true;
 	}
 
-	@Override
-	public double getX() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double getZ() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 	/**
 	 * @methodtype assert
 	 */
