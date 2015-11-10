@@ -87,16 +87,6 @@ public class CartesianCoordinate extends AbstractCoordinate {
 	}
 
 	/**
-	 * @methodtype get
-	 */
-	public double getDistance(Coordinate c) {
-		// Pythagoras:
-		assertCordinateNull(c);
-		return Math.sqrt(Math.pow(c.getX() - this.getX(), 2) + Math.pow(c.getY() - this.getY(), 2)
-				+ Math.pow(c.getZ() - this.getZ(), 2));
-	}
-
-	/**
 	 * @methodtype boolean-query
 	 */
 	@Override
@@ -141,14 +131,4 @@ public class CartesianCoordinate extends AbstractCoordinate {
 	// double lon = Math.atan2(getY(), getX());
 	// return new SphericCoordinate(lat, lon);
 	// }
-
-	/**
-	 * @methodtype assert
-	 */
-	private void assertCordinateNull(Coordinate c) {
-		if (c == null) {
-			throw new NullPointerException("coordinate must not be null");
-		}
-	}
-
 }

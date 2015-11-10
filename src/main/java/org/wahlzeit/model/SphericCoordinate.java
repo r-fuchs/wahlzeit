@@ -100,22 +100,6 @@ public class SphericCoordinate extends AbstractCoordinate {
 	}
 
 	/**
-	* Calculates the distance between the coordinate and a second coordinate
-	* @param c the second coordinate to calculate the distance from
-	* @return the distance in kilometer between the coordinates
-	* @methodtype query
-	* @methodproperty composed
-	*/
-	public double getDistance (Coordinate c){
-	//Pythagoras:
-		assertCordinateNull(c);
-		return Math.sqrt(
-				Math.pow(c.getX() - this.getX(), 2) 
-				+ Math.pow(c.getY() - this.getY(), 2) 
-				+ Math.pow(c.getZ() - this.getZ(), 2));
-	}
-
-	/**
 	* @methodtype boolean-query
 	*/
 	public int hashCode() {
