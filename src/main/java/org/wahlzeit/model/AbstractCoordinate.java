@@ -38,10 +38,24 @@ public abstract class AbstractCoordinate implements Coordinate {
 				+ Math.pow(c.getZ() - this.getZ(), 2));
 	}
 
-	@Override
+	/**
+	 * @methodtype boolean-query
+	 */
 	public boolean isEqual(Coordinate c) {
-		// TODO Auto-generated method stub
-		return false;
+		if (this == c)
+			return true;
+		if (c == null)
+			return false;
+		if (getClass() != c.getClass())
+			return false;
+		CartesianCoordinate other = (CartesianCoordinate) c;
+		if (Double.doubleToLongBits(getX()) != Double.doubleToLongBits(other.getX()))
+			return false;
+		if (Double.doubleToLongBits(getY()) != Double.doubleToLongBits(other.getY()))
+			return false;
+		if (Double.doubleToLongBits(getZ()) != Double.doubleToLongBits(other.getZ()))
+			return false;
+		return true;
 	}
 
 	@Override

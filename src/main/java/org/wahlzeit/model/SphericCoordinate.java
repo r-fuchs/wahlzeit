@@ -115,27 +115,6 @@ public class SphericCoordinate extends AbstractCoordinate {
 		return result;
 	}
 
-	/**
-	* @methodtype boolean-query
-	*/
-	public boolean isEqual(Coordinate c) {
-		if (this == c)
-			return true;
-		if (c == null)
-			return false;
-		if (getClass() != c.getClass())
-			return false;
-		SphericCoordinate other = (SphericCoordinate) c;
-		if (Double.doubleToLongBits(latitude) != Double.doubleToLongBits(other.latitude))
-			return false;
-		if (Double.doubleToLongBits(longitude) != Double.doubleToLongBits(other.longitude))
-			return false;
-		if (Double.doubleToLongBits(radius) != Double.doubleToLongBits(other.radius))
-			return false;
-		return true;
-	}
-
-
 	//conversation to x,y and z:
 	//from http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
 	/**

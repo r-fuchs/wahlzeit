@@ -103,26 +103,6 @@ public class CartesianCoordinate extends AbstractCoordinate {
 		return result;
 	}
 
-	/**
-	 * @methodtype boolean-query
-	 */
-	public boolean isEqual(Coordinate c) {
-		if (this == c)
-			return true;
-		if (c == null)
-			return false;
-		if (getClass() != c.getClass())
-			return false;
-		CartesianCoordinate other = (CartesianCoordinate) c;
-		if (Double.doubleToLongBits(x) != Double.doubleToLongBits(other.x))
-			return false;
-		if (Double.doubleToLongBits(y) != Double.doubleToLongBits(other.y))
-			return false;
-		if (Double.doubleToLongBits(z) != Double.doubleToLongBits(other.z))
-			return false;
-		return true;
-	}
-
 	// reffering to
 	// http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
 	// public SphericCoordinate toSphericCoordinate(double radius)
