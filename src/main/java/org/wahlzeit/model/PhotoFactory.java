@@ -76,14 +76,14 @@ public class PhotoFactory {
 	 * @methodtype factory
 	 */
 	public Photo createPhoto() {
-		return new Photo();
+		return new ApplePhoto();
 	}
 
 	/**
 	 * Creates a new photo with the specified id
 	 */
 	public Photo createPhoto(PhotoId id) {
-		return new Photo(id);
+		return new ApplePhoto(id);
 	}
 
 	/**
