@@ -21,8 +21,9 @@
 
 package org.wahlzeit.model;
 
+import java.io.Serializable;
 
-public class SphericCoordinate extends AbstractCoordinate {
+public class SphericCoordinate extends AbstractCoordinate implements Serializable{
 
 	private double latitude;
 	private double longitude;

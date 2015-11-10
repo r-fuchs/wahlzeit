@@ -19,11 +19,14 @@
  */
 
 package org.wahlzeit.model;
+
+import java.io.Serializable;
+
 /**
  * Abstract implementation of Coordinate
  * Implements basis functions
  */
-public abstract class AbstractCoordinate implements Coordinate {
+public abstract class AbstractCoordinate implements Serializable, Coordinate {
 
 	/**
 	 * Calculates the distance between the coordinate and a second coordinate

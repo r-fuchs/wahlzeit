@@ -20,7 +20,9 @@
 
 package org.wahlzeit.model;
 
-public class CartesianCoordinate extends AbstractCoordinate {
+import java.io.Serializable;
+
+public class CartesianCoordinate extends AbstractCoordinate implements Serializable{
 
 	private double x;
 	private double y;
