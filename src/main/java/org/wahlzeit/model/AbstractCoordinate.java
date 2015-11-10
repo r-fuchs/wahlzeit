@@ -34,7 +34,6 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	 * @param c the second coordinate to calculate the distance from
 	 * @return the distance in kilometer between the coordinates
 	 * @methodtype query
-	 * @methodproperty composed
 	 */
 	public double getDistance(Coordinate c) {
 		// Pythagoras:
