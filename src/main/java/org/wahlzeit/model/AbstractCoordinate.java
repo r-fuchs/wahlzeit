@@ -28,8 +28,7 @@ public abstract class AbstractCoordinate implements Coordinate {
 	/**
 	 * Calculates the distance between the coordinate and a second coordinate
 	 * 
-	 * @param c
-	 *            the second coordinate to calculate the distance from
+	 * @param c the second coordinate to calculate the distance from
 	 * @return the distance in kilometer between the coordinates
 	 * @methodtype query
 	 * @methodproperty composed
