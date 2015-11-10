@@ -20,9 +20,7 @@
 
 package org.wahlzeit.model;
 
-import org.wahlzeit.services.DataObject;
-
-public class CartesianCoordinate extends DataObject implements Coordinate {
+public class CartesianCoordinate extends AbstractCoordinate {
 
 	private double x;
 	private double y;

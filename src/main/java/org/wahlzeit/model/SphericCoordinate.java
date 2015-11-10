@@ -21,9 +21,8 @@
 
 package org.wahlzeit.model;
 
-import org.wahlzeit.services.DataObject;
 
-public class SphericCoordinate extends DataObject implements Coordinate {
+public class SphericCoordinate extends AbstractCoordinate {
 
 	private double latitude;
 	private double longitude;
