@@ -39,7 +39,6 @@ public class SphericCoordinateTest {
 		sc2 = new SphericCoordinate(2, 2, 2);
 		sc3 = new SphericCoordinate(-2, 2,2);
 		sc4 = new SphericCoordinate(2, -2, 2);
-		sc5 = new SphericCoordinate(2, 2,-2);
 	}
 	
 	@Test
@@ -47,20 +46,15 @@ public class SphericCoordinateTest {
 		assertEquals(sc2.getDistance(sc1), sc1.getDistance(sc2), epsilon);
 		assertEquals(sc3.getDistance(sc2), sc2.getDistance(sc3), epsilon);
 		assertEquals(sc4.getDistance(sc3), sc3.getDistance(sc4), epsilon);
-		assertEquals(sc5.getDistance(sc4), sc4.getDistance(sc5), epsilon);
-		assertEquals(sc1.getDistance(sc5), sc5.getDistance(sc1), epsilon);
 		
 		assertEquals(0.0, sc1.getDistance(sc1), epsilon);
 		assertEquals(0.0, sc2.getDistance(sc2), epsilon);
 		assertEquals(0.0, sc3.getDistance(sc3), epsilon);
 		assertEquals(0.0, sc4.getDistance(sc4), epsilon);
-		assertEquals(0.0, sc5.getDistance(sc5), epsilon);
 		
 		assertEquals(2.0, 		sc1.getDistance(sc2), epsilon);
 		assertEquals(0.13959, 	sc2.getDistance(sc3), epsilon);
 		assertEquals(0.19736, 	sc3.getDistance(sc4), epsilon);
-		assertEquals(3.99756, 	sc4.getDistance(sc5), epsilon);
-		assertEquals(2.0, 		sc5.getDistance(sc1), epsilon);
 	}
 	
 	@Test(expected = NullPointerException.class)
