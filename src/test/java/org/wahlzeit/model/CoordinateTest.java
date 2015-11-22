@@ -30,8 +30,8 @@ import org.junit.Test;
 */
 public class CoordinateTest {
 
-	private Coordinate cc1, cc2, cc3, cc4, cc5;
-	private Coordinate sc1, sc2, sc3, sc4, sc5;
+	private Coordinate cc1, cc2, cc3, cc4;
+	private Coordinate sc1, sc2, sc3, sc4;
 	private double epsilon = 0.00001;
 
 	@Before

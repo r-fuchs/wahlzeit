@@ -30,7 +30,7 @@ import org.junit.Test;
 */
 public class SphericCoordinateTest {
 
-	private SphericCoordinate sc1, sc2, sc3, sc4, sc5;
+	private SphericCoordinate sc1, sc2, sc3, sc4;
 	private double epsilon = 0.00001;
 
 	@Before
