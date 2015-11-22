@@ -72,5 +72,18 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 			throw new NullPointerException("coordinate must not be null");
 		}
 	}
+	
+	/**
+	* @methodtype assertion
+	*/
+	protected void assertIsDoubleValue(double val) {
+		assert !Double.isNaN(val);
+	}
 
+	/**
+	  * Class invariant assertion method
+	  * @methodtype assertion
+	  * */
+	 protected abstract void assertClassInvariants();
+	 
 }

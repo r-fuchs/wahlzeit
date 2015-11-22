@@ -22,7 +22,7 @@ package org.wahlzeit.model;
 
 import java.io.Serializable;
 
-public class CartesianCoordinate extends AbstractCoordinate implements Serializable{
+public class CartesianCoordinate extends AbstractCoordinate implements Serializable {
 
 	private double x;
 	private double y;
@@ -35,6 +35,7 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 		setX(0);
 		setY(0);
 		setZ(0);
+		assertClassInvariants();
 	}
 
 	/**
@@ -44,12 +45,14 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 		setX(x);
 		setY(y);
 		setZ(z);
+		assertClassInvariants();
 	}
 
 	/**
 	 * @methodtype get
 	 */
 	public double getX() {
+		assertClassInvariants();
 		return x;
 	}
 
@@ -57,13 +60,16 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	 * @methodtype set
 	 */
 	public void setX(double x) {
+		assertClassInvariants();
 		this.x = x;
+		assertClassInvariants();
 	}
 
 	/**
 	 * @methodtype get
 	 */
 	public double getY() {
+		assertClassInvariants();
 		return y;
 	}
 
@@ -71,13 +77,16 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	 * @methodtype set
 	 */
 	public void setY(double y) {
+		assertClassInvariants();
 		this.y = y;
+		assertClassInvariants();
 	}
 
 	/**
 	 * @methodtype get
 	 */
 	public double getZ() {
+		assertClassInvariants();
 		return z;
 	}
 
@@ -85,7 +94,9 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	 * @methodtype set
 	 */
 	public void setZ(double z) {
+		assertClassInvariants();
 		this.z = z;
+		assertClassInvariants();
 	}
 
 	/**
@@ -93,6 +104,7 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	 */
 	@Override
 	public int hashCode() {
+		assertClassInvariants();
 		final int prime = 31;
 		int result = 1;
 		long temp;
@@ -102,15 +114,14 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(z);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
+		assertClassInvariants();
 		return result;
 	}
 
-	// reffering to
-	// http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
-	// public SphericCoordinate toSphericCoordinate(double radius)
-	// {
-	// double lat = Math.asin(getZ() / radius);
-	// double lon = Math.atan2(getY(), getX());
-	// return new SphericCoordinate(lat, lon);
-	// }
+	@Override
+	protected void assertClassInvariants() {
+		assertIsDoubleValue(x);
+		assertIsDoubleValue(y);
+		assertIsDoubleValue(z);
+	}
 }

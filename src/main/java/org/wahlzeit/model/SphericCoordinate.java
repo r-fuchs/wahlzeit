@@ -42,24 +42,29 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	* @methodtype constructor
 	*/
 	public SphericCoordinate (double latidtude, double longitude, double radius) {
+		assertClassInvariants();
 		setLatitude(latidtude);
 		setLongitude(longitude);
 		setRadius(radius);
+		assertClassInvariants();
 	}
 	
 	/**
 	* @methodtype constructor
 	*/
 	public SphericCoordinate (double latidtude, double longitude) {
+		assertClassInvariants();
 		setLatitude(latidtude);
 		setLongitude(longitude);
 		setRadius(Coordinate.EARTHRADIUS);
+		assertClassInvariants();
 	}
 	
 	/**
 	* @methodtype get
 	*/
 	public double getLatitude() {
+		assertClassInvariants();
 		return latitude;
 	}
 
@@ -68,13 +73,16 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	*/
 	public void setLatitude(double latitude) {
 		assertIsLatitudeValid(latitude);
+		assertClassInvariants();
 		this.latitude = latitude;
+		assertClassInvariants();
 	}
 
 	/**
 	* @methodtype get
 	*/
 	public double getLongitude() {
+		assertClassInvariants();
 		return longitude;
 	}
 
@@ -83,13 +91,16 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	 */
 	public void setLongitude(double longitude) {
 		assertIsLongitudeValid(longitude);
+		assertClassInvariants();
 		this.longitude = longitude;
+		assertClassInvariants();
 	}
 
 	/**
 	* @methodtype get
 	*/
 	public double getRadius() {
+		assertClassInvariants();
 		return radius;
 	}
 
@@ -97,13 +108,16 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	* @methodtype set
 	*/
 	public void setRadius(double radius) {
+		assertClassInvariants();
 		this.radius = radius;
+		assertClassInvariants();
 	}
 
 	/**
 	* @methodtype boolean-query
 	*/
 	public int hashCode() {
+		assertClassInvariants();
 		final int prime = 31;
 		int result = 1;
 		long temp;
@@ -113,6 +127,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(radius);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
+		assertClassInvariants();
 		return result;
 	}
 
@@ -122,6 +137,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	* @methodtype get
 	*/
 	public double getX() {
+		assertClassInvariants();
 		return getRadius() * Math.cos(Math.toRadians(getLatitude())) * Math.cos(Math.toRadians(getLongitude()));
 	}
 
@@ -129,6 +145,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	* @methodtype get
 	*/
 	public double getY() {
+		assertClassInvariants();
 		return getRadius() * Math.cos(Math.toRadians(getLatitude())) * Math.sin(Math.toRadians(getLongitude()));
 	}
 
@@ -136,6 +153,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	* @methodtype get
 	*/
 	public double getZ() {
+		assertClassInvariants();
 		return getRadius() * Math.sin(Math.toRadians(getLatitude()));
 	}
 
@@ -162,5 +180,13 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 		if (latitude < -90 ||  latitude > 90){
 			throw new IllegalArgumentException("latitude must be between - 90 and 90");
 		}
-	}	
+	}
+
+	@Override
+	protected void assertClassInvariants() {
+		assertIsDoubleValue(latitude);
+		assertIsDoubleValue(longitude);
+		assertIsDoubleValue(radius);
+	}
+	
 }
