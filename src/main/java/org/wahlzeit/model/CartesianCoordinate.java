@@ -59,7 +59,6 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	 */
 	public void setX(double x) {
 		assertIsDoubleValue(x);
-		assertIsValidX(x);
 		assertClassInvariants();
 		this.x = x;
 		assertClassInvariants();
@@ -78,7 +77,6 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	 */
 	public void setY(double y) {
 		assertIsDoubleValue(y);
-		assertIsValidY(y);
 		assertClassInvariants();
 		this.y = y;
 		assertClassInvariants();
@@ -97,7 +95,6 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	 */
 	public void setZ(double z) {
 		assertIsDoubleValue(z);
-		assertIsValidZ(z);
 		assertClassInvariants();
 		this.z = z;
 		assertClassInvariants();
@@ -122,24 +119,6 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 		return result;
 	}
 
-	/**
-	* @methodtype assert
-	*/
-	private void assertIsValidX(double x){
-		if (x < 0){
-			throw new IllegalArgumentException("x must not bigger than 0");
-		}
-	}
-	private void assertIsValidY(double y){
-		if (y < 0){
-			throw new IllegalArgumentException("y must not bigger than 0");
-		}
-	}
-	private void assertIsValidZ(double z){
-		if (z < 0){
-			throw new IllegalArgumentException("z must not bigger than 0");
-		}
-	}
 	
 	/**
 	* @methodtype assert
@@ -149,8 +128,5 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 		assertIsDoubleValue(x);
 		assertIsDoubleValue(y);
 		assertIsDoubleValue(z);
-		assertIsValidX(x);
-		assertIsValidY(y);
-		assertIsValidZ(z);
 	}
 }
