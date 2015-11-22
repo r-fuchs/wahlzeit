@@ -20,18 +20,55 @@
 
 package org.wahlzeit.model;
 
+/**
+ * 
+ * Implementation of the Coordinate interface.
+ *
+ */
 public interface Coordinate {
 
 	public static double EARTHRADIUS = 6371;
 
+	/**
+	 * 
+	 * @param c
+	 * @returns the distace as double value
+	 * @methodtype: get
+	 * 
+	 */
 	public double getDistance(Coordinate c);
 
+	/**
+	 * 
+	 * @param c
+	 * @returns boolean
+	 * @methodtype: boolean query method
+	 * 
+	 */
 	public boolean isEqual(Coordinate c);
 
+	/**
+	 * 
+	 * @returns the x value
+	 * @methodtype: get
+	 * 
+	 */
 	public double getX();
 
+	/**
+	 * 
+	 * @returns the y value
+	 * @methodtype: get
+	 * 
+	 */
 	public double getY();
 
+	/**
+	 * 
+	 * @returns the z value
+	 * @methodtype: get
+	 * 
+	 */
 	public double getZ();
 
 }

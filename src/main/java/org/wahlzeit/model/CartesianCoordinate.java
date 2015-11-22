@@ -21,7 +21,12 @@
 package org.wahlzeit.model;
 
 import java.io.Serializable;
-
+/**
+ * 
+ * Implementation of the CartesianCoordinate class
+ * This class holds the Coordinates in x,y and z values
+ *
+ */
 public class CartesianCoordinate extends AbstractCoordinate implements Serializable {
 
 	private double x;
