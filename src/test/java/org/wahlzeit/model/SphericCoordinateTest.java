@@ -43,6 +43,7 @@ public class SphericCoordinateTest {
 	
 	@Test
 	public void testCoordinateDistance() {
+		assertEquals(sc1.getDistance(sc4), sc4.getDistance(sc1), epsilon);
 		assertEquals(sc2.getDistance(sc1), sc1.getDistance(sc2), epsilon);
 		assertEquals(sc3.getDistance(sc2), sc2.getDistance(sc3), epsilon);
 		assertEquals(sc4.getDistance(sc3), sc3.getDistance(sc4), epsilon);
@@ -55,6 +56,7 @@ public class SphericCoordinateTest {
 		assertEquals(2.0, 		sc1.getDistance(sc2), epsilon);
 		assertEquals(0.13959, 	sc2.getDistance(sc3), epsilon);
 		assertEquals(0.19736, 	sc3.getDistance(sc4), epsilon);
+		assertEquals(2.0, 		sc4.getDistance(sc1), epsilon);
 	}
 	
 	@Test(expected = NullPointerException.class)
