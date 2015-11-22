@@ -36,11 +36,13 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	 * @methodtype query
 	 */
 	public double getDistance(Coordinate c) {
+		assertClassInvariants();
 		assertCoordinateNotNull(c);
 		double rtnValue = Math.sqrt(Math.pow(c.getX() - this.getX(), 2) + Math.pow(c.getY() - this.getY(), 2)
 				+ Math.pow(c.getZ() - this.getZ(), 2));
 		assertIsDoubleValue(rtnValue);
 		assertIsNotNull(rtnValue);
+		assertClassInvariants();
 		return rtnValue;
 	}
 
