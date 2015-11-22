@@ -38,10 +38,13 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	public double getDistance(Coordinate c) {
 		// Pythagoras:
 		assertCoordinateNotNull(c);
-		return Math.sqrt(
+		double rtnValue = Math.sqrt(
 				Math.pow(c.getX() - this.getX(), 2) 
 				+ Math.pow(c.getY() - this.getY(), 2)
 				+ Math.pow(c.getZ() - this.getZ(), 2));
+		assertIsDoubleValue(rtnValue);
+		assertIsNotNull(rtnValue);
+		return rtnValue;
 	}
 
 	/**
@@ -78,6 +81,16 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	*/
 	protected void assertIsDoubleValue(double val) {
 		assert !Double.isNaN(val);
+	}
+	
+	/**
+	*a method, to implement postconditions 
+	* @methodtype assertion
+	*/
+	protected void assertIsNotNull(Object val) {
+		if (val == null) {
+			throw new NullPointerException("Object must not be null");
+		}
 	}
 
 	/**
