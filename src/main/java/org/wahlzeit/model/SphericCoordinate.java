@@ -33,16 +33,17 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	* @methodtype constructor
 	*/
 	public SphericCoordinate () {
-		setLatitude(0);
-		setLongitude(0);
-		setRadius(Coordinate.EARTHRADIUS);
+		this(0.0, 0.0);
+		assertClassInvariants();
 	}
 	
 	/**
 	* @methodtype constructor
 	*/
 	public SphericCoordinate (double latidtude, double longitude, double radius) {
-		assertClassInvariants();
+		assertIsDoubleValue(latidtude);
+		assertIsLongitudeValid(longitude);
+		assertIsValidRadius(radius);
 		setLatitude(latidtude);
 		setLongitude(longitude);
 		setRadius(radius);
@@ -53,11 +54,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	* @methodtype constructor
 	*/
 	public SphericCoordinate (double latidtude, double longitude) {
-		assertClassInvariants();
-		setLatitude(latidtude);
-		setLongitude(longitude);
-		setRadius(Coordinate.EARTHRADIUS);
-		assertClassInvariants();
+		this(latidtude,longitude,Coordinate.EARTHRADIUS);
 	}
 	
 	/**
@@ -72,6 +69,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	* @methodtype set
 	*/
 	public void setLatitude(double latitude) {
+		assertIsDoubleValue(latitude);
 		assertIsLatitudeValid(latitude);
 		assertClassInvariants();
 		this.latitude = latitude;
@@ -90,6 +88,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	 * @methodtype set
 	 */
 	public void setLongitude(double longitude) {
+		assertIsDoubleValue(longitude);
 		assertIsLongitudeValid(longitude);
 		assertClassInvariants();
 		this.longitude = longitude;
@@ -108,6 +107,8 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	* @methodtype set
 	*/
 	public void setRadius(double radius) {
+		assertIsDoubleValue(radius);
+		assertIsValidRadius(radius);
 		assertClassInvariants();
 		this.radius = radius;
 		assertClassInvariants();
@@ -157,14 +158,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 		return getRadius() * Math.sin(Math.toRadians(getLatitude()));
 	}
 
-	/**
-	* @methodtype assert
-	*/
-	private void assertCordinateNull(Coordinate c){
-	if (c==null){
-		throw new NullPointerException("coordinate must not be null");
-		}
-	}
+
 	/**
 	* @methodtype assert
 	*/
@@ -181,12 +175,28 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 			throw new IllegalArgumentException("latitude must be between - 90 and 90");
 		}
 	}
-
+	
+	/**
+	* @methodtype assert
+	*/
+	private void assertIsValidRadius(double radius){
+		if (radius < 0){
+			throw new IllegalArgumentException("radius must not bigger than 0");
+		}
+	}
+	
+	
+	/**
+	* @methodtype assert
+	*/
 	@Override
 	protected void assertClassInvariants() {
 		assertIsDoubleValue(latitude);
 		assertIsDoubleValue(longitude);
 		assertIsDoubleValue(radius);
+		assertIsLatitudeValid(latitude);
+		assertIsLongitudeValid(longitude);
+		assertIsValidRadius(radius);
 	}
 	
 }

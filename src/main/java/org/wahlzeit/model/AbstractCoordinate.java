@@ -37,7 +37,7 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	 */
 	public double getDistance(Coordinate c) {
 		// Pythagoras:
-		assertCordinateNull(c);
+		assertCoordinateNotNull(c);
 		return Math.sqrt(
 				Math.pow(c.getX() - this.getX(), 2) 
 				+ Math.pow(c.getY() - this.getY(), 2)
@@ -67,7 +67,7 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	/**
 	 * @methodtype assert
 	 */
-	private void assertCordinateNull(Coordinate c) {
+	private void assertCoordinateNotNull(Coordinate c) {
 		if (c == null) {
 			throw new NullPointerException("coordinate must not be null");
 		}

@@ -87,5 +87,10 @@ public class SphericCoordinateTest {
 	public void testLongitudinalCoordinateToLowShouldCauseException() {
 		sc1 = new SphericCoordinate(0, -181);
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testRadiusSmallerThanZeroShouldCauseException() {
+		sc1 = new SphericCoordinate(0, 0, -1);
+	}
 
 }
