@@ -32,7 +32,7 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	 * @methodtype constructor
 	 */
 	public CartesianCoordinate() {
-		this(0.0,0.0,0.0);
+		this(0.0, 0.0, 0.0);
 		assertClassInvariants();
 	}
 
@@ -119,10 +119,9 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 		return result;
 	}
 
-	
 	/**
-	* @methodtype assert
-	*/
+	 * @methodtype assert
+	 */
 	@Override
 	protected void assertClassInvariants() {
 		assertIsDoubleValue(x);

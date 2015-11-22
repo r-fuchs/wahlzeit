@@ -23,24 +23,22 @@ package org.wahlzeit.model;
 import java.io.Serializable;
 
 /**
- * Abstract implementation of Coordinate
- * Implements basis functions
+ * Abstract implementation of Coordinate Implements basis functions
  */
 public abstract class AbstractCoordinate implements Serializable, Coordinate {
 
 	/**
 	 * Calculates the distance between the coordinate and a second coordinate
 	 * 
-	 * @param c the second coordinate to calculate the distance from
+	 * @param c
+	 *            the second coordinate to calculate the distance from
 	 * @return the distance in kilometer between the coordinates
 	 * @methodtype query
 	 */
 	public double getDistance(Coordinate c) {
 		// Pythagoras:
 		assertCoordinateNotNull(c);
-		double rtnValue = Math.sqrt(
-				Math.pow(c.getX() - this.getX(), 2) 
-				+ Math.pow(c.getY() - this.getY(), 2)
+		double rtnValue = Math.sqrt(Math.pow(c.getX() - this.getX(), 2) + Math.pow(c.getY() - this.getY(), 2)
 				+ Math.pow(c.getZ() - this.getZ(), 2));
 		assertIsDoubleValue(rtnValue);
 		assertIsNotNull(rtnValue);
@@ -75,18 +73,19 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 			throw new NullPointerException("coordinate must not be null");
 		}
 	}
-	
+
 	/**
-	* @methodtype assertion
-	*/
+	 * @methodtype assertion
+	 */
 	protected void assertIsDoubleValue(double val) {
 		assert !Double.isNaN(val);
 	}
-	
+
 	/**
-	*a method, to implement postconditions 
-	* @methodtype assertion
-	*/
+	 * a method, to implement postconditions
+	 * 
+	 * @methodtype assertion
+	 */
 	protected void assertIsNotNull(Object val) {
 		if (val == null) {
 			throw new NullPointerException("Object must not be null");
@@ -94,9 +93,10 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	}
 
 	/**
-	  * Class invariant assertion method
-	  * @methodtype assertion
-	  * */
-	 protected abstract void assertClassInvariants();
-	 
+	 * Class invariant assertion method
+	 * 
+	 * @methodtype assertion
+	 */
+	protected abstract void assertClassInvariants();
+
 }
