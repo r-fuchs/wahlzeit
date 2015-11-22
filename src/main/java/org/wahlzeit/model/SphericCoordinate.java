@@ -181,7 +181,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	*/
 	private void assertIsValidRadius(double radius){
 		if (radius < 0){
-			throw new IllegalArgumentException("radius must not bigger than 0");
+			throw new IllegalArgumentException("radius must be bigger than 0");
 		}
 	}
 	
