@@ -44,6 +44,12 @@ public class CartesianCoordinateTest {
 
 	@Test
 	public void testCoordinateDistance() {
+		assertEquals(cc2.getDistance(cc1), cc1.getDistance(cc2), epsilon);
+		assertEquals(cc3.getDistance(cc2), cc2.getDistance(cc3), epsilon);
+		assertEquals(cc4.getDistance(cc3), cc3.getDistance(cc4), epsilon);
+		assertEquals(cc5.getDistance(cc4), cc4.getDistance(cc5), epsilon);
+		assertEquals(cc1.getDistance(cc5), cc5.getDistance(cc1), epsilon);
+		
 		assertEquals(0.0, cc1.getDistance(cc1), epsilon);
 		assertEquals(0.0, cc2.getDistance(cc2), epsilon);
 		assertEquals(0.0, cc3.getDistance(cc3), epsilon);

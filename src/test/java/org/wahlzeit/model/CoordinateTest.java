@@ -30,8 +30,8 @@ import org.junit.Test;
 */
 public class CoordinateTest {
 
-	private CartesianCoordinate cc1, cc2, cc3, cc4, cc5;
-	private SphericCoordinate sc1, sc2, sc3, sc4, sc5;
+	private Coordinate cc1, cc2, cc3, cc4, cc5;
+	private Coordinate sc1, sc2, sc3, sc4, sc5;
 	private double epsilon = 0.00001;
 
 	@Before
@@ -50,7 +50,13 @@ public class CoordinateTest {
 	}
 	
 	@Test
-	public void testSphericAndCartesianCoordinateDistance() {		
+	public void testSphericAndCartesianCoordinateDistance() {
+		assertEquals(sc2.getDistance(cc1), cc1.getDistance(sc2), epsilon);
+		assertEquals(sc3.getDistance(cc2), cc2.getDistance(sc3), epsilon);
+		assertEquals(sc4.getDistance(cc3), cc3.getDistance(sc4), epsilon);
+		assertEquals(sc5.getDistance(cc4), cc4.getDistance(sc5), epsilon);
+		assertEquals(sc1.getDistance(cc5), cc5.getDistance(sc1), epsilon);
+		
 		assertEquals(2.0, 		cc1.getDistance(sc2), epsilon);
 		assertEquals(2.83017, 	cc2.getDistance(sc3), epsilon);
 		assertEquals(4.89796, 	cc3.getDistance(sc4), epsilon);
