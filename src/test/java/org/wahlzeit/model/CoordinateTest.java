@@ -49,6 +49,7 @@ public class CoordinateTest {
 	
 	@Test
 	public void testSphericAndCartesianCoordinateDistance() {
+		assertEquals(sc1.getDistance(cc4), cc4.getDistance(sc1), epsilon);
 		assertEquals(sc2.getDistance(cc1), cc1.getDistance(sc2), epsilon);
 		assertEquals(sc3.getDistance(cc2), cc2.getDistance(sc3), epsilon);
 		assertEquals(sc4.getDistance(cc3), cc3.getDistance(sc4), epsilon);
@@ -56,5 +57,7 @@ public class CoordinateTest {
 		assertEquals(2.0, 		cc1.getDistance(sc2), epsilon);
 		assertEquals(2.83017, 	cc2.getDistance(sc3), epsilon);
 		assertEquals(4.89796, 	cc3.getDistance(sc4), epsilon);
+		assertEquals(3.46410, 	cc4.getDistance(sc1), epsilon);
+	
 	}
 }
