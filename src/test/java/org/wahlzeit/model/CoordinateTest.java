@@ -40,13 +40,11 @@ public class CoordinateTest {
 		cc2 = new CartesianCoordinate(2, 2, 2);
 		cc3 = new CartesianCoordinate(-2, 2,2);
 		cc4 = new CartesianCoordinate(2, -2, 2);
-		cc5 = new CartesianCoordinate(2, 2,-2);
 		
 		sc1 = new SphericCoordinate(0, 0,0);
 		sc2 = new SphericCoordinate(2, 2, 2);
 		sc3 = new SphericCoordinate(-2, 2,2);
 		sc4 = new SphericCoordinate(2, -2, 2);
-		sc5 = new SphericCoordinate(2, 2,-2);
 	}
 	
 	@Test
@@ -54,13 +52,9 @@ public class CoordinateTest {
 		assertEquals(sc2.getDistance(cc1), cc1.getDistance(sc2), epsilon);
 		assertEquals(sc3.getDistance(cc2), cc2.getDistance(sc3), epsilon);
 		assertEquals(sc4.getDistance(cc3), cc3.getDistance(sc4), epsilon);
-		assertEquals(sc5.getDistance(cc4), cc4.getDistance(sc5), epsilon);
-		assertEquals(sc1.getDistance(cc5), cc5.getDistance(sc1), epsilon);
-		
+
 		assertEquals(2.0, 		cc1.getDistance(sc2), epsilon);
 		assertEquals(2.83017, 	cc2.getDistance(sc3), epsilon);
 		assertEquals(4.89796, 	cc3.getDistance(sc4), epsilon);
-		assertEquals(4.89800, 	cc4.getDistance(sc5), epsilon);
-		assertEquals(3.46410, 	cc5.getDistance(sc1), epsilon);
 	}
 }
