@@ -46,9 +46,6 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	 * @methodtype constructor
 	 */
 	public SphericCoordinate(double latidtude, double longitude, double radius) {
-		assertIsDoubleValue(latidtude);
-		assertIsLongitudeValid(longitude);
-		assertIsValidRadius(radius);
 		setLatitude(latidtude);
 		setLongitude(longitude);
 		setRadius(radius);
