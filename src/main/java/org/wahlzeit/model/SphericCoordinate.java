@@ -22,12 +22,20 @@ package org.wahlzeit.model;
 
 import java.io.Serializable;
 
+import org.wahlzeit.utils.Pattern;
+
 /**
  * 
  * Implementation of the SphericCoordinate class
  * It holds the values as latitude, longitude and radius
  *
  */
+@Pattern(
+	name = "template method pattern", 
+	participants = { 
+		"ConcreteClass"
+	}
+)
 public class SphericCoordinate extends AbstractCoordinate implements Serializable {
 
 	private double latitude;
