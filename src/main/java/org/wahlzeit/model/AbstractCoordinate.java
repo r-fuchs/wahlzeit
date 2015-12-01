@@ -22,17 +22,9 @@ package org.wahlzeit.model;
 
 import java.io.Serializable;
 
-import org.wahlzeit.utils.Pattern;
-
 /**
  * Abstract implementation of Coordinate Implements basis functions
  */
-@Pattern(
-	name = "template method pattern", 
-	participants = { 
-		"AbstractClass"
-	}
-)
 public abstract class AbstractCoordinate implements Serializable, Coordinate {
 
 	/**

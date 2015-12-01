@@ -22,19 +22,12 @@ package org.wahlzeit.model;
 
 import java.io.Serializable;
 
-import org.wahlzeit.utils.Pattern;
 /**
  * 
  * Implementation of the CartesianCoordinate class
  * This class holds the Coordinates in x,y and z values
  *
  */
-@Pattern(
-	name = "template method pattern", 
-	participants = { 
-		"ConcreteClass"
-	}
-)
 public class CartesianCoordinate extends AbstractCoordinate implements Serializable {
 
 	private double x;
