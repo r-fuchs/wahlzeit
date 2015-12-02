@@ -31,7 +31,7 @@ import java.util.logging.Logger;
 @Pattern(
 	name = "Singelton", 
 	participants = { 
-		"Singelton" 
+		"Singelton" //this Abstract Factory
 	}
 )
 public class PhotoFactory {

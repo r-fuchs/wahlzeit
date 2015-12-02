@@ -41,7 +41,8 @@ import java.util.logging.Logger;
 @Pattern(
 	name = "Lazy Initialization", 
 	participants = { 
-		"Lazy Initialization" 
+		"UserManager",
+		"Client"
 	}
 )
 public class UserManager extends ClientManager {
