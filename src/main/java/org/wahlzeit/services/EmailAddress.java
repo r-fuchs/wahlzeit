@@ -22,6 +22,9 @@ package org.wahlzeit.services;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+
+import org.wahlzeit.utils.Pattern;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,6 +33,12 @@ import java.util.Map;
  * An email address provides a simple email address representation.
  * It is a value object and implemented as immutable.
  */
+@Pattern(
+	name = "Multiton", 
+	participants = { 
+		"EmailAddress"
+	}
+)
 public class EmailAddress implements Serializable {
 
 	/**
