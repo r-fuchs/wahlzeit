@@ -58,6 +58,10 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 		this.radius = radius;
 	}
 
+	public static Coordinate getInstance(double latitude, double longitude){
+		return getInstance(latitude, longitude, EARTHRADIUS);
+	}
+	
 	public static Coordinate getInstance(double latitude, double longitude, double radius) {
 		double x = doGetX(latitude, longitude, radius);
 		double y = doGetY(latitude, longitude, radius);
@@ -210,5 +214,4 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 		assertIsLongitudeValid(longitude);
 		assertIsValidRadius(radius);
 	}
-
 }
