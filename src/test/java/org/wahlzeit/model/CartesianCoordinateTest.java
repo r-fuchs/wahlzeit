@@ -83,7 +83,9 @@ public class CartesianCoordinateTest {
 	@Test
 	public void testImmutable() {
 		CartesianCoordinate t1 = (CartesianCoordinate) CartesianCoordinate.getInstance(1, 1, 1);
-		CartesianCoordinate t2 = t1.setX(2);	
+		CartesianCoordinate t2 = (CartesianCoordinate) CartesianCoordinate.getInstance(1, 1, 1);
+		assertTrue(t1.isEqual(t2));
+		t2 = t1.setX(2);	
 		assertFalse(t1.isEqual(t2));
 	}
 	

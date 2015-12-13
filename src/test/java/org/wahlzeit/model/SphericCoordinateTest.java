@@ -79,7 +79,9 @@ public class SphericCoordinateTest {
 	@Test
 	public void testImmutable() {
 		SphericCoordinate t1 = (SphericCoordinate) SphericCoordinate.getInstance(1, 1, 1);
-		SphericCoordinate t2 = t1.setLatitude(2);	
+		SphericCoordinate t2 = (SphericCoordinate) SphericCoordinate.getInstance(1, 1, 1);
+		assertTrue(t1.isEqual(t2));
+		t2 = t1.setLatitude(2);	
 		assertFalse(t1.isEqual(t2));
 	}
 	
