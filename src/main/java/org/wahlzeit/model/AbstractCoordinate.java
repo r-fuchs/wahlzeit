@@ -29,41 +29,20 @@ import java.util.HashMap;
 public abstract class AbstractCoordinate implements Serializable, Coordinate {
 
 	static HashMap<Integer, Coordinate> instances = new HashMap<Integer, Coordinate>();
-	
-	/**
-	 * @methodtype: getter
-	 */
-	public Coordinate getInstance(double x, double y, double z){
-		return doGetInstance(x,y,z);
-	}
 
 	/**
-	 * @methodtype: getter
+	 * @methodtype: comparison
+	 * @param c
+	 * @return
 	 */
-	protected Coordinate doGetInstance(double x, double y, double z)
-	{
-		Coordinate result = instances.get(hashCode());
+	protected synchronized boolean checkIfExistence(Coordinate c) {
+		Coordinate result = instances.get(c.hashCode());
 		if (result == null) {
-
-			synchronized (instances) {
-
-				result = instances.get(hashCode());
-
-				if (result == null) {
-					result = createCoordinate(x,y,z);
-					instances.put(hashCode(), result);
-				}
-			}
+			return false;
 		}
-		return result;
+		return true;
 	}
-	
-	/**
-	 * Create a coordinate
-	 */
-	abstract Coordinate createCoordinate(double x, double y, double z);
 
-	
 	/**
 	 * Calculates the distance between the coordinate and a second coordinate
 	 * 
@@ -102,19 +81,33 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 			return false;
 		return true;
 	}
-	
+
 	/**
 	 * @methodtype boolean-query
 	 */
 	public int hashCode() {
+		return hashCode(this);
+	}
+	
+	/**
+	 * @methodtype boolean-query
+	 */
+	public int hashCode(Coordinate c) {
+		return hashCode(c.getX(), c.getY(), c.getZ());
+	}
+	
+	/**
+	 * @methodtype boolean-query
+	 */
+	public int hashCode(double x, double y, double z) {
 		final int prime = 31;
 		int result = 1;
 		long temp;
-		temp = Double.doubleToLongBits(getX());
+		temp = Double.doubleToLongBits(x);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(getY());
+		temp = Double.doubleToLongBits(y);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(getZ());
+		temp = Double.doubleToLongBits(z);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
