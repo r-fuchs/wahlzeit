@@ -36,15 +36,15 @@ public class CoordinateTest {
 
 	@Before
 	public void setUp() {
-		cc1 = new CartesianCoordinate(0, 0, 0);
-		cc2 = new CartesianCoordinate(2, 2, 2);
-		cc3 = new CartesianCoordinate(-2, 2, 2);
-		cc4 = new CartesianCoordinate(2, -2, 2);
+		cc1 = CartesianCoordinate.getInstance(0, 0, 0);
+		cc2 = CartesianCoordinate.getInstance(2, 2, 2);
+		cc3 = CartesianCoordinate.getInstance(-2, 2, 2);
+		cc4 = CartesianCoordinate.getInstance(2, -2, 2);
 
-		sc1 = new SphericCoordinate(0, 0, 0);
-		sc2 = new SphericCoordinate(2, 2, 2);
-		sc3 = new SphericCoordinate(-2, 2, 2);
-		sc4 = new SphericCoordinate(2, -2, 2);
+		sc1 = SphericCoordinate.getInstance(0, 0, 0);
+		sc2 = SphericCoordinate.getInstance(2, 2, 2);
+		sc3 = SphericCoordinate.getInstance(-2, 2, 2);
+		sc4 = SphericCoordinate.getInstance(2, -2, 2);
 	}
 
 	@Test

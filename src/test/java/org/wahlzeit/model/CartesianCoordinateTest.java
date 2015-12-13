@@ -30,16 +30,16 @@ import org.junit.Test;
 */
 public class CartesianCoordinateTest {
 
-	private CartesianCoordinate cc1, cc2, cc3, cc4, cc5;
+	private Coordinate cc1, cc2, cc3, cc4, cc5;
 	private double epsilon = 0.00001;
 
 	@Before
 	public void setUp() {
-		cc1 = new CartesianCoordinate(0, 0,0);
-		cc2 = new CartesianCoordinate(2, 2, 2);
-		cc3 = new CartesianCoordinate(-2, 2,2);
-		cc4 = new CartesianCoordinate(2, -2, 2);
-		cc5 = new CartesianCoordinate(2, 2,-2);
+		cc1 = CartesianCoordinate.getInstance(0, 0,0);
+		cc2 = CartesianCoordinate.getInstance(2, 2, 2);
+		cc3 = CartesianCoordinate.getInstance(-2, 2,2);
+		cc4 = CartesianCoordinate.getInstance(2, -2, 2);
+		cc5 = CartesianCoordinate.getInstance(2, 2,-2);
 	}
 
 	@Test

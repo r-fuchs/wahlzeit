@@ -30,15 +30,15 @@ import org.junit.Test;
  */
 public class SphericCoordinateTest {
 
-	private SphericCoordinate sc1, sc2, sc3, sc4;
+	private Coordinate sc1, sc2, sc3, sc4;
 	private double epsilon = 0.00001;
 
 	@Before
 	public void setUp() {
-		sc1 = new SphericCoordinate(0, 0, 0);
-		sc2 = new SphericCoordinate(2, 2, 2);
-		sc3 = new SphericCoordinate(-2, 2, 2);
-		sc4 = new SphericCoordinate(2, -2, 2);
+		sc1 = SphericCoordinate.getInstance(0, 0, 0);
+		sc2 = SphericCoordinate.getInstance(2, 2, 2);
+		sc3 = SphericCoordinate.getInstance(-2, 2, 2);
+		sc4 = SphericCoordinate.getInstance(2, -2, 2);
 	}
 
 	@Test
@@ -66,27 +66,27 @@ public class SphericCoordinateTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testLatitudinalCoordinateToHighShouldCauseException() {
-		sc1 = new SphericCoordinate(91, 0);
+		sc1 = SphericCoordinate.getInstance(91, 0);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testLatitudinalCoordinateToLowShouldCauseException() {
-		sc1 = new SphericCoordinate(-91, 0);
+		sc1 = SphericCoordinate.getInstance(-91, 0);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testLongitudinalCoordinateToHighShouldCauseException() {
-		sc1 = new SphericCoordinate(0, 181);
+		sc1 = SphericCoordinate.getInstance(0, 181);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testLongitudinalCoordinateToLowShouldCauseException() {
-		sc1 = new SphericCoordinate(0, -181);
+		sc1 = SphericCoordinate.getInstance(0, -181);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testRadiusSmallerThanZeroShouldCauseException() {
-		sc1 = new SphericCoordinate(0, 0, -1);
+		sc1 = SphericCoordinate.getInstance(0, 0, -1);
 	}
 
 }
