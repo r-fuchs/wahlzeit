@@ -37,14 +37,6 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	/**
 	 * @methodtype constructor
 	 */
-	private CartesianCoordinate() {
-		this(0.0, 0.0, 0.0);
-		assertClassInvariants();
-	}
-
-	/**
-	 * @methodtype constructor
-	 */
 	private CartesianCoordinate(double x, double y, double z) {
 		this.x = x;
 		this.y = y;

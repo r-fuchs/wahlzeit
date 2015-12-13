@@ -37,21 +37,6 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	/**
 	 * @methodtype constructor
 	 */
-	private SphericCoordinate() {
-		this(0.0, 0.0);
-		assertClassInvariants();
-	}
-
-	/**
-	 * @methodtype constructor
-	 */
-	private SphericCoordinate(double latitude, double longitude) {
-		this(latitude, longitude, Coordinate.EARTHRADIUS);
-	}
-
-	/**
-	 * @methodtype constructor
-	 */
 	private SphericCoordinate(double latitude, double longitude, double radius) {
 		this.latitude = latitude;
 		this.longitude = longitude;
