@@ -46,6 +46,9 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	 * @methodtype constructor
 	 */
 	public static SphericCoordinate getInstance(double latitude, double longitude, double radius){
+		double x = doGetX();
+		double y =doGetY();
+		double z = dogetZ();
 		SphericCoordinate result = instances.get
 		setLatitude(latidtude);
 		setLongitude(longitude);
@@ -53,7 +56,6 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 		assertClassInvariants();
 	}
 
-	
 	/**
 	 * @methodtype constructor
 	 */
@@ -121,33 +123,6 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 		return result;
 	}
 
-	// conversation to x,y and z:
-	// from
-	// http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
-	/**
-	 * @methodtype get
-	 */
-	public double getX() {
-		assertClassInvariants();
-		return getRadius() * Math.cos(Math.toRadians(getLatitude())) * Math.cos(Math.toRadians(getLongitude()));
-	}
-
-	/**
-	 * @methodtype get
-	 */
-	public double getY() {
-		assertClassInvariants();
-		return getRadius() * Math.cos(Math.toRadians(getLatitude())) * Math.sin(Math.toRadians(getLongitude()));
-	}
-
-	/**
-	 * @methodtype get
-	 */
-	public double getZ() {
-		assertClassInvariants();
-		return getRadius() * Math.sin(Math.toRadians(getLatitude()));
-	}
-
 	/**
 	 * @methodtype assert
 	 */
@@ -173,6 +148,27 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 		if (radius < 0) {
 			throw new IllegalArgumentException("radius must be bigger than 0");
 		}
+	}
+
+	/**
+	 * @methodtype primitive helper
+	 */
+	private static double doGetX(double latitude, double longitude, double radius) {
+		return radius * Math.cos(Math.toRadians(latitude)) * Math.cos(Math.toRadians(longitude));
+	}
+
+	/**
+	 * @methodtype primitive helper
+	 */
+	private static double doGetY(double latitude, double longitude, double radius) {
+		return radius * Math.cos(Math.toRadians(latitude)) * Math.sin(Math.toRadians(longitude));
+	}
+
+	/**
+	 * @methodtype primitive helper
+	 */
+	private static double dogetZ(double latitude, double longitude, double radius) {
+		return radius * Math.sin(Math.toRadians(latitude));
 	}
 
 	/**
