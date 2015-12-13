@@ -36,11 +36,11 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	 * @return
 	 */
 	protected synchronized boolean exists(Coordinate c) {
-		return exists(c.getX(), c.getY(), c.getZ());
+		return exists(c.getX(),c.getY(),c.getZ());
 	}
-
+	
 	protected synchronized static boolean exists(double x, double y, double z) {
-		Coordinate result = instances.get(hashCode(x, y, z));
+		Coordinate result = instances.get(hashCode(x,y,z));
 		if (result == null) {
 			return false;
 		}
