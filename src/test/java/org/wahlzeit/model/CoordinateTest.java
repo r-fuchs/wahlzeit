@@ -32,7 +32,7 @@ public class CoordinateTest {
 
 	private Coordinate cc1, cc2, cc3, cc4;
 	private Coordinate sc1, sc2, sc3, sc4;
-	private double epsilon = 0.00001;
+	private double epsilon = 0.0001;
 
 	@Before
 	public void setUp() {

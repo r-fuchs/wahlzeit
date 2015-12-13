@@ -127,7 +127,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	/**
 	 * @methodtype assert
 	 */
-	private void assertIsLongitudeValid(double longitude) {
+	private static void assertIsLongitudeValid(double longitude) {
 		if (longitude < -180 || longitude > 180) {
 			throw new IllegalArgumentException("longitude must be between - 180 and 180");
 		}
@@ -136,7 +136,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	/**
 	 * @methodtype assert
 	 */
-	private void assertIsLatitudeValid(double latitude) {
+	private static void assertIsLatitudeValid(double latitude) {
 		if (latitude < -90 || latitude > 90) {
 			throw new IllegalArgumentException("latitude must be between - 90 and 90");
 		}
@@ -145,7 +145,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	/**
 	 * @methodtype assert
 	 */
-	private void assertIsValidRadius(double radius) {
+	private static void assertIsValidRadius(double radius) {
 		if (radius < 0) {
 			throw new IllegalArgumentException("radius must be bigger than 0");
 		}
@@ -155,6 +155,9 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	 * @methodtype primitive helper
 	 */
 	private static double doGetX(double latitude, double longitude, double radius) {
+		assertIsLatitudeValid(latitude);
+		assertIsLongitudeValid(longitude);
+		assertIsValidRadius(radius);
 		return radius * Math.cos(Math.toRadians(latitude)) * Math.cos(Math.toRadians(longitude));
 	}
 
@@ -162,6 +165,9 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	 * @methodtype primitive helper
 	 */
 	private static double doGetY(double latitude, double longitude, double radius) {
+		assertIsLatitudeValid(latitude);
+		assertIsLongitudeValid(longitude);
+		assertIsValidRadius(radius);
 		return radius * Math.cos(Math.toRadians(latitude)) * Math.sin(Math.toRadians(longitude));
 	}
 
@@ -169,6 +175,9 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	 * @methodtype primitive helper
 	 */
 	private static double doGetZ(double latitude, double longitude, double radius) {
+		assertIsLatitudeValid(latitude);
+		assertIsLongitudeValid(longitude);
+		assertIsValidRadius(radius);
 		return radius * Math.sin(Math.toRadians(latitude));
 	}
 

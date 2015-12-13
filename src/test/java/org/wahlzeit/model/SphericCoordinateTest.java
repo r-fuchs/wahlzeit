@@ -33,7 +33,7 @@ import org.junit.Test;
 public class SphericCoordinateTest {
 
 	private Coordinate sc1, sc2, sc3, sc4, s1, s2, s3;
-	private double epsilon = 0.00001;
+	private double epsilon = 0.0001;
 
 	@Before
 	public void setUp() {
@@ -41,9 +41,9 @@ public class SphericCoordinateTest {
 		sc2 = SphericCoordinate.getInstance(2, 2, 2);
 		sc3 = SphericCoordinate.getInstance(-2, 2, 2);
 		sc4 = SphericCoordinate.getInstance(2, -2, 2);
-		s1  = SphericCoordinate.getInstance(0.0, 0.0, 0.0);
-		s2  = SphericCoordinate.getInstance(0.0, 0.0, 0.0);
-		s3  = SphericCoordinate.getInstance(0.0, 3.0, 0.0);
+		s1  = SphericCoordinate.getInstance(42.0, 0.0, 0.0);
+		s2  = SphericCoordinate.getInstance(1.0, 1.0, 1.0);
+		s3  = SphericCoordinate.getInstance(1.0, 1.0, 1.0);
 	}
 
 	@Test
