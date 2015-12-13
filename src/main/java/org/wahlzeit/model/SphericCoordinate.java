@@ -46,6 +46,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	 * @methodtype constructor
 	 */
 	public static SphericCoordinate getInstance(double latitude, double longitude, double radius){
+		SphericCoordinate result = instances.get
 		setLatitude(latidtude);
 		setLongitude(longitude);
 		setRadius(radius);

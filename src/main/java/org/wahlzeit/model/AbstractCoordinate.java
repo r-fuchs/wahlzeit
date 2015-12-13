@@ -88,14 +88,14 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	public int hashCode() {
 		return hashCode(this);
 	}
-	
+
 	/**
 	 * @methodtype boolean-query
 	 */
 	public int hashCode(Coordinate c) {
 		return hashCode(c.getX(), c.getY(), c.getZ());
 	}
-	
+
 	/**
 	 * @methodtype boolean-query
 	 */
