@@ -24,8 +24,8 @@ import java.io.Serializable;
 
 /**
  * 
- * Implementation of the SphericCoordinate class
- * It holds the values as latitude, longitude and radius
+ * Implementation of the SphericCoordinate class It holds the values as
+ * latitude, longitude and radius
  *
  */
 public class SphericCoordinate extends AbstractCoordinate implements Serializable {
@@ -70,12 +70,13 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	/**
 	 * @methodtype set
 	 */
-	public void setLatitude(double latitude) {
+	public SphericCoordinate setLatitude(double latitude) {
 		assertIsDoubleValue(latitude);
 		assertIsLatitudeValid(latitude);
 		assertClassInvariants();
-		this.latitude = latitude;
+		SphericCoordinate result = new SphericCoordinate(latitude, this.getLongitude(), this.getRadius());
 		assertClassInvariants();
+		return result;
 	}
 
 	/**
@@ -89,12 +90,13 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	/**
 	 * @methodtype set
 	 */
-	public void setLongitude(double longitude) {
+	public SphericCoordinate setLongitude(double longitude) {
 		assertIsDoubleValue(longitude);
 		assertIsLongitudeValid(longitude);
 		assertClassInvariants();
-		this.longitude = longitude;
+		SphericCoordinate result = new SphericCoordinate(this.getLatitude(), longitude, this.getRadius());
 		assertClassInvariants();
+		return result;
 	}
 
 	/**
@@ -108,12 +110,13 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	/**
 	 * @methodtype set
 	 */
-	public void setRadius(double radius) {
+	public SphericCoordinate setRadius(double radius) {
 		assertIsDoubleValue(radius);
 		assertIsValidRadius(radius);
 		assertClassInvariants();
-		this.radius = radius;
+		SphericCoordinate result = new SphericCoordinate(this.getLatitude(), this.getLongitude(), radius);
 		assertClassInvariants();
+		return result;
 	}
 
 	/**
