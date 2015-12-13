@@ -21,12 +21,49 @@
 package org.wahlzeit.model;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 /**
  * Abstract implementation of Coordinate Implements basis functions
  */
 public abstract class AbstractCoordinate implements Serializable, Coordinate {
 
+	static HashMap<Integer, Coordinate> instances = new HashMap<Integer, Coordinate>();
+	
+	/**
+	 * @methodtype: getter
+	 */
+	public Coordinate getCoordinate(double x, double y, double z){
+		return doGetCoordinate(x,y,z);
+	}
+
+	/**
+	 * @methodtype: getter
+	 */
+	protected Coordinate doGetCoordinate(double x, double y, double z)
+	{
+		Coordinate result = instances.get(hashCode());
+		if (result == null) {
+
+			synchronized (instances) {
+
+				result = instances.get(hashCode());
+
+				if (result == null) {
+					result = createCoordinate(x,y,z);
+					instances.put(hashCode(), result);
+				}
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * Create a coordinate
+	 */
+	abstract Coordinate createCoordinate(double x, double y, double z);
+
+	
 	/**
 	 * Calculates the distance between the coordinate and a second coordinate
 	 * 
