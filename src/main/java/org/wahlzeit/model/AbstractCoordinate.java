@@ -39,7 +39,7 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 		return checkIfExistence(c.getX(),c.getY(),c.getZ());
 	}
 	
-	protected synchronized boolean checkIfExistence(double x, double y, double z) {
+	protected synchronized static boolean checkIfExistence(double x, double y, double z) {
 		Coordinate result = instances.get(hashCode(x,y,z));
 		if (result == null) {
 			return false;
@@ -103,7 +103,7 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	/**
 	 * @methodtype boolean-query
 	 */
-	public int hashCode(double x, double y, double z) {
+	public static int hashCode(double x, double y, double z) {
 		final int prime = 31;
 		int result = 1;
 		long temp;
