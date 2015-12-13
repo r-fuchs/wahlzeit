@@ -37,7 +37,7 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	/**
 	 * @methodtype constructor
 	 */
-	public CartesianCoordinate() {
+	private CartesianCoordinate() {
 		this(0.0, 0.0, 0.0);
 		assertClassInvariants();
 	}
@@ -45,11 +45,10 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	/**
 	 * @methodtype constructor
 	 */
-	public CartesianCoordinate(double x, double y, double z) {
-		setX(x);
-		setY(y);
-		setZ(z);
-		assertClassInvariants();
+	private CartesianCoordinate(double x, double y, double z) {
+		this.x=x;
+		this.y=y;
+		this.z=z;
 	}
 
 	/**
@@ -63,11 +62,12 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	/**
 	 * @methodtype set
 	 */
-	public void setX(double x) {
+	public CartesianCoordinate setX(double x) {
 		assertIsDoubleValue(x);
 		assertClassInvariants();
-		this.x = x;
+		CartesianCoordinate result = new CartesianCoordinate(x, this.y, this.z);
 		assertClassInvariants();
+		return result;
 	}
 
 	/**
@@ -81,11 +81,12 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	/**
 	 * @methodtype set
 	 */
-	public void setY(double y) {
+	public CartesianCoordinate setY(double y) {
 		assertIsDoubleValue(y);
 		assertClassInvariants();
-		this.y = y;
+		CartesianCoordinate result = new CartesianCoordinate(this.x, y, this.z);
 		assertClassInvariants();
+		return result;
 	}
 
 	/**
@@ -99,11 +100,12 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	/**
 	 * @methodtype set
 	 */
-	public void setZ(double z) {
+	public CartesianCoordinate setZ(double z) {
 		assertIsDoubleValue(z);
 		assertClassInvariants();
-		this.z = z;
+		CartesianCoordinate result = new CartesianCoordinate(this.x, this.y, z);
 		assertClassInvariants();
+		return result;
 	}
 
 	/**
