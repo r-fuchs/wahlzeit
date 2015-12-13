@@ -30,9 +30,9 @@ import java.io.Serializable;
  */
 public class CartesianCoordinate extends AbstractCoordinate implements Serializable {
 
-	private double x;
-	private double y;
-	private double z;
+	final private double x;
+	final private double y;
+	final private double z;
 
 	/**
 	 * @methodtype constructor

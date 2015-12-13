@@ -30,9 +30,9 @@ import java.io.Serializable;
  */
 public class SphericCoordinate extends AbstractCoordinate implements Serializable {
 
-	private double latitude;
-	private double longitude;
-	private double radius;
+	final private double latitude;
+	final private double longitude;
+	final private double radius;
 
 	/**
 	 * @methodtype constructor
