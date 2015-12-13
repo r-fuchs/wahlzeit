@@ -45,22 +45,34 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	/**
 	 * @methodtype constructor
 	 */
-	public static SphericCoordinate getInstance(double latitude, double longitude, double radius){
-		double x = doGetX();
-		double y =doGetY();
-		double z = dogetZ();
-		SphericCoordinate result = instances.get
-		setLatitude(latidtude);
-		setLongitude(longitude);
-		setRadius(radius);
-		assertClassInvariants();
+	private SphericCoordinate(double latitude, double longitude) {
+		this(latitude, longitude, Coordinate.EARTHRADIUS);
 	}
 
 	/**
 	 * @methodtype constructor
 	 */
-	public SphericCoordinate(double latidtude, double longitude) {
-		this(latidtude, longitude, Coordinate.EARTHRADIUS);
+	private SphericCoordinate(double latitude, double longitude, double radius) {
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.radius = radius;
+	}
+
+	public static Coordinate getInstance(double latitude, double longitude, double radius) {
+		double x = doGetX(latitude, longitude, radius);
+		double y = doGetY(latitude, longitude, radius);
+		double z = doGetZ(latitude, longitude, radius);
+		Coordinate result = instances.get(hashCode(x, y, z));
+		if (result == null) {
+			synchronized (instances) {
+				result = instances.get(hashCode(x, y, z));
+				if (result == null) {
+					result = new SphericCoordinate(latitude, longitude, radius);
+					instances.put(hashCode(x, y, z), result);
+				}
+			}
+		}
+		return result;
 	}
 
 	/**
@@ -167,10 +179,25 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	/**
 	 * @methodtype primitive helper
 	 */
-	private static double dogetZ(double latitude, double longitude, double radius) {
+	private static double doGetZ(double latitude, double longitude, double radius) {
 		return radius * Math.sin(Math.toRadians(latitude));
 	}
 
+	@Override
+	public double getX() {
+		return doGetX(this.latitude, this.longitude, this.radius);
+	}
+
+	@Override
+	public double getY() {
+		return doGetY(this.latitude, this.longitude, this.radius);
+	}
+
+	@Override
+	public double getZ() {
+		return doGetZ(this.latitude, this.longitude, this.radius);
+	}
+	
 	/**
 	 * @methodtype assert
 	 */
