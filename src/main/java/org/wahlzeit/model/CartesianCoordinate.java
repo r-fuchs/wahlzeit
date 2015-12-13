@@ -24,8 +24,8 @@ import java.io.Serializable;
 
 /**
  * 
- * Implementation of the CartesianCoordinate class
- * This class holds the Coordinates in x,y and z values
+ * Implementation of the CartesianCoordinate class This class holds the
+ * Coordinates in x,y and z values
  *
  */
 public class CartesianCoordinate extends AbstractCoordinate implements Serializable {
@@ -46,9 +46,23 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	 * @methodtype constructor
 	 */
 	private CartesianCoordinate(double x, double y, double z) {
-		this.x=x;
-		this.y=y;
-		this.z=z;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+	public static Coordinate getInstance(double x, double y, double z) {
+		Coordinate result = instances.get(hashCode(x, y, z));
+		if (result == null) {
+			synchronized (instances) {
+				result = instances.get(hashCode(x, y, z));
+				if (result == null) {
+					result = new CartesianCoordinate(x, y, z);
+					instances.put(hashCode(x, y, z), result);
+				}
+			}
+		}
+		return result;
 	}
 
 	/**
