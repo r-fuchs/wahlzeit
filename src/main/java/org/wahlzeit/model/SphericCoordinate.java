@@ -45,7 +45,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	/**
 	 * @methodtype constructor
 	 */
-	public SphericCoordinate(double latidtude, double longitude, double radius) {
+	public static SphericCoordinate getInstance(double latitude, double longitude, double radius){
 		setLatitude(latidtude);
 		setLongitude(longitude);
 		setRadius(radius);
@@ -116,24 +116,6 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 		assertIsValidRadius(radius);
 		assertClassInvariants();
 		SphericCoordinate result = new SphericCoordinate(this.getLatitude(), this.getLongitude(), radius);
-		assertClassInvariants();
-		return result;
-	}
-
-	/**
-	 * @methodtype boolean-query
-	 */
-	public int hashCode() {
-		assertClassInvariants();
-		final int prime = 31;
-		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(latitude);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(longitude);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(radius);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		assertClassInvariants();
 		return result;
 	}

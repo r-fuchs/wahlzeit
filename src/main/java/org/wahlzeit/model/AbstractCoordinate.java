@@ -33,14 +33,14 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	/**
 	 * @methodtype: getter
 	 */
-	public Coordinate getCoordinate(double x, double y, double z){
-		return doGetCoordinate(x,y,z);
+	public Coordinate getInstance(double x, double y, double z){
+		return doGetInstance(x,y,z);
 	}
 
 	/**
 	 * @methodtype: getter
 	 */
-	protected Coordinate doGetCoordinate(double x, double y, double z)
+	protected Coordinate doGetInstance(double x, double y, double z)
 	{
 		Coordinate result = instances.get(hashCode());
 		if (result == null) {
@@ -104,7 +104,7 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 	}
 	
 	/**
-	 * @methodtype query
+	 * @methodtype boolean-query
 	 */
 	public int hashCode() {
 		final int prime = 31;

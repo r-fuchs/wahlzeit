@@ -107,25 +107,6 @@ public class CartesianCoordinate extends AbstractCoordinate implements Serializa
 	}
 
 	/**
-	 * @methodtype boolean-query
-	 */
-	@Override
-	public int hashCode() {
-		assertClassInvariants();
-		final int prime = 31;
-		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(x);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(y);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(z);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		assertClassInvariants();
-		return result;
-	}
-
-	/**
 	 * @methodtype assert
 	 */
 	@Override
