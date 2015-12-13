@@ -65,6 +65,22 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 			return false;
 		return true;
 	}
+	
+	/**
+	 * @methodtype query
+	 */
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(getX());
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(getY());
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(getZ());
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
 
 	/**
 	 * @methodtype assert
