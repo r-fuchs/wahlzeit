@@ -37,7 +37,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 	/**
 	 * @methodtype constructor
 	 */
-	public SphericCoordinate() {
+	private SphericCoordinate() {
 		this(0.0, 0.0);
 		assertClassInvariants();
 	}
@@ -52,6 +52,7 @@ public class SphericCoordinate extends AbstractCoordinate implements Serializabl
 		assertClassInvariants();
 	}
 
+	
 	/**
 	 * @methodtype constructor
 	 */
