@@ -39,6 +39,9 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 		return exists(c.getX(),c.getY(),c.getZ());
 	}
 	
+	/**
+	 * @methodtype: comparison
+	 */
 	protected synchronized static boolean exists(double x, double y, double z) {
 		Coordinate result = instances.get(hashCode(x,y,z));
 		if (result == null) {
