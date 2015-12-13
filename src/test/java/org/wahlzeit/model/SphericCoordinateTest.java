@@ -21,6 +21,8 @@
 package org.wahlzeit.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +32,7 @@ import org.junit.Test;
  */
 public class SphericCoordinateTest {
 
-	private Coordinate sc1, sc2, sc3, sc4;
+	private Coordinate sc1, sc2, sc3, sc4, s1, s2, s3;
 	private double epsilon = 0.00001;
 
 	@Before
@@ -39,6 +41,9 @@ public class SphericCoordinateTest {
 		sc2 = SphericCoordinate.getInstance(2, 2, 2);
 		sc3 = SphericCoordinate.getInstance(-2, 2, 2);
 		sc4 = SphericCoordinate.getInstance(2, -2, 2);
+		s1  = SphericCoordinate.getInstance(0.0, 0.0, 0.0);
+		s2  = SphericCoordinate.getInstance(0.0, 0.0, 0.0);
+		s3  = SphericCoordinate.getInstance(0.0, 3.0, 0.0);
 	}
 
 	@Test
@@ -58,7 +63,26 @@ public class SphericCoordinateTest {
 		assertEquals(0.19736, sc3.getDistance(sc4), epsilon);
 		assertEquals(2.0, sc4.getDistance(sc1), epsilon);
 	}
-
+	
+	@Test
+	public void testShared() {
+		assertFalse(s1.isEqual(s3));
+		assertFalse(s1 == s3);
+		assertFalse(s2.isEqual(s1));
+		assertFalse(s2 == s1);
+		assertTrue(s2.isEqual(s3));
+		assertTrue(s2 == s3);
+		assertTrue(s3.isEqual(s2));
+		assertTrue(s3 == s2);
+	}
+	
+	@Test
+	public void testImmutable() {
+		SphericCoordinate t1 = (SphericCoordinate) SphericCoordinate.getInstance(1, 1, 1);
+		SphericCoordinate t2 = t1.setLatitude(2);	
+		assertFalse(t1.isEqual(t2));
+	}
+	
 	@Test(expected = NullPointerException.class)
 	public void testSecondCoordinateGetDistanceNullShouldCauseException() {
 		sc1.getDistance(null);

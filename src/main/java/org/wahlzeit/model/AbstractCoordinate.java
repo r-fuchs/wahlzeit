@@ -76,7 +76,7 @@ public abstract class AbstractCoordinate implements Serializable, Coordinate {
 			return false;
 		if (getClass() != c.getClass())
 			return false;
-		CartesianCoordinate other = (CartesianCoordinate) c;
+		Coordinate other = (Coordinate) c;
 		if (Double.doubleToLongBits(getX()) != Double.doubleToLongBits(other.getX()))
 			return false;
 		if (Double.doubleToLongBits(getY()) != Double.doubleToLongBits(other.getY()))
