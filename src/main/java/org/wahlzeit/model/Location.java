@@ -30,7 +30,7 @@ public class Location extends DataObject{
 	 * @methodtype convenience constructor
 	 */
 	public Location(double latitude, double longitude) {
-		this.coordinate = new SphericCoordinate(latitude,longitude);
+		this.coordinate = SphericCoordinate.getInstance(latitude,longitude);
 	}
 	
 	/**
