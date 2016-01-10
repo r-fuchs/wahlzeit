@@ -26,9 +26,7 @@ import com.googlecode.objectify.annotation.Subclass;
 @Subclass(index = true)
 public class ApplePhoto extends Photo {
 
-	private double size;
-	private double weight;
-	private String name;
+	private Apple apple;
 
 	/**
 	 * @methodtype constructor
@@ -55,41 +53,41 @@ public class ApplePhoto extends Photo {
 	 * @methodtype get
 	 */
 	public double getSize() {
-		return size;
+		return apple.getType().getSize();
 	}
 
 	/**
 	 * @methodtype set
 	 */
 	public void setSize(double size) {
-		this.size = size;
+		apple.getType().setSize(size);
 	}
 
 	/**
 	 * @methodtype get
 	 */
 	public double getWeight() {
-		return weight;
+		return apple.getType().getSize();
 	}
 
 	/**
 	 * @methodtype set
 	 */
 	public void setWeight(double weight) {
-		this.weight = weight;
+		apple.getType().setWeight(weight);
 	}
 
 	/**
 	 * @methodtype get
 	 */
 	public String getName() {
-		return name;
+		return apple.getType().getName();
 	}
 
 	/**
 	 * @methodtype set
 	 */
 	public void setName(String name) {
-		name = name;
+		apple.getType().setName(name);
 	}
 }
