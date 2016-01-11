@@ -21,11 +21,12 @@
 
 package org.wahlzeit.model;
 
-import com.googlecode.objectify.annotation.Subclass;
+import com.googlecode.objectify.annotation.Entity;
 
-@Subclass(index = true)
+@Entity
 public class ApplePhoto extends Photo {
 
+	private static final long serialVersionUID = 2984283888652556990L;
 	private Apple apple;
 
 	/**
